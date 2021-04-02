@@ -1,4 +1,4 @@
-/* .link{
+.link{
     background-size: 20px;
     background-color: white;
     border: solid 3px rgb(81, 81, 245);
@@ -17,4 +17,16 @@
     font-size: 20px;
     margin-bottom: 20px;
     margin-top: 20px;
-} */
+}
+.title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.text{
+    font-family: 'Times New Roman', Times, serif;
+}
+.link{
+    font-family: cursive;
+}
+.button{
+    font-family: cursive;
+}
