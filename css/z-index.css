@@ -1,0 +1,110 @@
+/* ----------Z-index---------- */
+/* 
+- Nos permite modificar el orden de las capas en el ejec z (profundidad)
+- Admite valores positivos y negativos
+- Es recomendable usar valores salteados y no consecutivos por ej: 10, 20, 20... 100, 200, 300
+- Si el padre tiene z-index declarado no podremos poner a un hijo por encima
+*/
+
+[class^="box"]{
+    width: 100px;
+    height: 100px;
+    font-size: 2em;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.box1{
+    background-color: lime;
+}
+.box2{
+    background-color: red;
+    top: -50px;
+    left: 50px;
+    z-index: 20;
+}
+.box3{
+    background-color: blue;
+    top: -100px;
+    left: 100px;
+    z-index: 30;
+}
+.box1_1{
+    background-color: yellow;
+    top: -225px;
+    left: 70px;
+    z-index: 25;
+}
+.box4{
+    background-color: lime;
+    z-index: 30;
+}
+.box5{
+    background-color: red;
+    top: -50px;
+    left: 50px;
+    z-index: 20;
+}
+.box6{
+    background-color: blue;
+    top: -100px;
+    left: 100px;
+    z-index: 10;
+}
+.box2_2{
+    background-color: yellow;
+    top: -320px;
+    left: 80px;
+}
+.box7{
+    background-color: lime;
+}
+.box8{
+    background-color: red;
+    top: -50px;
+    left: 50px;
+    z-index: 20;
+}
+.box9{
+    background-color: blue;
+    top: -100px;
+    left: 100px;
+}
+.box3_3{
+    background-color: yellow;
+    top: -225px;
+    left: 80px;
+    z-index: 30;
+}
+/*Para aplicar z-indez entre padres e hijos es un poco diferente, la teoria de arriba no funciona entre padres e hijos. En este caso se hace de manera un poco diferente
+
+Para poder hacer que el hijo este por detras o debajo del padre tenemos que aplicar dos parametros
+
+    1ro: El padre no tiene que tener un z-index declarado
+    2do: El hijo tiene que tener un z-index negativo forzosamente
+
+ Si no respetamos estos parametros y el padre tiene un z-index sea cual sea o el hijo tiene un z-index en positivo no va a funcionar*/
+
+.dad{
+    background-color: aqua;
+    width: 500px;
+    height: 500px;
+    font-size: 4em;
+    text-align: center;
+    position: relative;
+    top: -1000px;
+    left: 350px;
+}
+.son{
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    position: relative;
+    top: -150px;
+    left: 50px;
+    z-index: -10;
+}

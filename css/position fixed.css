@@ -1,0 +1,32 @@
+/* ------Position fixed-------- */
+/* 
+- El valor fixed hace que el elemtento se coloque respecto al viewport
+- El elemento no conserva su espacio en el flujo
+- Si no tiene dimensiones declaradas, sus dimensiones se ajustan al contenido
+- Su punto de referencia no se modificara aunque movamos el elemento
+- CUANDO HACEMOS SCROLL EL ELEMENTO NO SE MOVERA, SE QUEDA FIJO 
+*/
+body{
+    padding-top: 5em;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.menu{/*Es IMPORTANTE notar que el width lo eh desactivado ya que el ancho de la caja lo podemos controlar con los valores de top y left teniendo una position fixed, si le aplicamos ademas de estos valores el width, este tendra un comportamiento un tanto raro, erratico y se desborada un poco del limite del viewport*/
+    background-color: darkcyan;
+    /* width: 100%; */
+    position: fixed;/*Con la position fixed la caja se va hasta el extremo del viewport, no me respeta la medidad del ancho que le proporciono, parecera que si, pero si lo comparo con la caja roja se observara que no es asi, ya que la caja rojo tiene un pequeño gap en el lado derecho, mientras que la caja del menu no deja este espacio y se va hasta el borde checar esta parte*/
+    top: 0;
+    left: 0px;
+    right: 0;
+    padding: .5em;
+    text-align: center;
+    font-size: 2em;
+    z-index: 1000;
+}
+.title{
+    margin-top: 0;/*Este margen lo estipule ya que las etiquetas h tienen un margin por defecto y al no quitarle este margen todo me quedaba un tanto abajo con respecto al borde superior*/ 
+    text-align: center;
+}
+.text{
+    margin: 0 50px;
+}

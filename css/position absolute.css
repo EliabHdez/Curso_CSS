@@ -1,0 +1,93 @@
+/* La posicion absoluta al igual que la relativa nos permite mover las cajas o elementos
+
+La direrencia radica en que la posicion absoluta:
+- Hace que el elemento se coloque con respecto a su contenedor mas cercano
+- El elemento no conserva su espacio en el flujo
+- Si el elemento no tiene dimensiones declaradas, sus dimensiones se ajustan al contenido
+- Su punto de referencia no se modificara aunque movamos el elemento*/
+
+.container{
+    width: 300px;
+    height: 300px;
+    border: 5px solid black;
+    margin: 20px;
+    position: relative; /*Con la posicion relativa en el contenedor general lo que logramos es que el contenido se riga en base a este y no al viewport*/
+}
+[class*="box"]{/*Aqui podemos observa que utilizamos un tipo de selector que fue el "*", el cual nos permitio seleccionar todos los div que tuvieran el mismo atributo (class) y parte del mismo valor (box) en ese atributo*/
+    width: 40px;
+    height: 40px;
+}
+.box1{
+    border: 5px solid lime;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.box2{
+    border: 5px solid red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.box3{
+    border: 5px solid blue;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.box4{
+    border: 5px solid yellow;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.box5{
+    width: 100px;
+    height: 100px;
+    border: 5px solid  aqua;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /*En esta ultima caja ocupamos un truco para poderla centrar dentro del contenedor general o principal, lo cual pudimos lograr con la position absolute dandole los mismos valores a todos los lados (valor 0) y el margin en auto, esto provoco que al momento de tener el mismo valor en todos los lados el margin centrara la caja ya que tenia que dar el mismo valor a todos los lados*/
+}
+
+/* Al no declarar una medida para los contenedores o cajas, estan se ajustan de acuerdo a su contenido */
+.bax6{
+    border: 5px solid lime;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.bax7{
+    border: 5px solid red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.bax8{
+    border: 5px solid blue;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.bax9{
+    border: 5px solid yellow;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.bax10{
+    border: 5px solid  aqua;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

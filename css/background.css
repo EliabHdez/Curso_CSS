@@ -1,0 +1,119 @@
+/* 
+    background color: Establece el color de fondo de la caja
+    background image: url (ruta de la imagen): Establece la imagen de fondo de la caja
+
+    background-repeat: Establece si la imagen se repetira o no
+        repeat - x / repeat - y / no - repeat
+
+    background-size: Establece el tamaño de la imagen de fondo
+        x|y / auto / cover / contain 
+        - El valor de "y" es opcional, si no se declara se calcula automaticamente
+        - Cover cubre la caja por completo, escapando de la caja contenedora si el tamaño de la imagen no coincide con el de la caja
+        - Contain permite que la imagen se ajuste al contenido
+
+    background-position: Establece la posicion de la imagen, si no se especifica un segundo valor este sera center por defecto
+        left top
+        left center
+        left bottom
+        right top
+        right center
+        right bottom
+        center top
+        center center
+        center bottom
+        x% y%
+        xpos ypos
+        initial
+        inherit
+
+    background-attachment: Permite establecer si el fondo se coloca con respecto a la caja o al viewport
+        -Se utiliza muy a menudo para darle un fondo al body y que este este fijo al momento de hacer scroll, esto permite que que haya una imagen de fondo fija en todo momento en la pagina web
+
+        -Si se establece el valor "scroll" el fondo es relativo a la caja
+        -Si se establece el valor "fixed" el fondo es relativo al viewport
+
+    background-clip: Establece que parte de la caja rellenara el fondo
+        border-box / padding-box / content-box
+
+    background-origin: Establece donde comienza el fondo
+        border-box / padding-box / content-box
+*/
+body{
+    padding-bottom: 50em;
+    text-align: center;
+}
+[class^="bg-"]{
+    display: inline-block;
+    border: 2px solid red;
+    border-radius: 2px;
+    width: 150px;
+    height: 150px;
+}
+.bg-color{
+    background-color: yellow;
+    background-image: url(../imagenes/firefox.png);
+    background-size: cover;
+}
+.bg-image{
+    background-image: url(../imagenes/firefox.png);
+}
+.bg-size{
+    background-image: url(../imagenes/cafe.jpeg);
+    background-size: contain; /*En el size podemos ocupar tanto contain, cover etc, pero de igual manera podemos ocupar valores pocentuales (%) dimensiones en pixels (px) y demas. Lo cual no podria venir bien dependiendo de la imagen y como queramos ajustarla o que ocupe cierto espacio en la caja*/
+    background-repeat: no-repeat;
+}
+.bg-size2{
+    background-image: url(../imagenes/cafe.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
+.bg-repeat{
+    background-image: url(../imagenes/firefox.png);
+    background-size: 50%;
+    background-repeat: repeat; /*Se puede poner valores "repeat-x" lo cual repetira la imagen en el eje x, "repeat-y" lo cual repetira la imagen en el eje y, "repeat" lo cual repetira la imagen en ambos ejes o "no-repeat"*/
+}
+.bg-position{
+    background-image: url(../imagenes/firefox.png);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center; /*En "background-position" podemos ocupar los valores de center, top, left, right, bottom, pero asi mismo y al igual que en background-repeat podemos ocupar valores porcentuales o en pixels para ajustar la posicion de la imagen. Recordar que si no se especifica un segundo valor, este por defecto sera center*/
+}
+.bg-origin{/*Redimensiona la imagen para que ocupe la zona que le decimos*/
+    background-origin: border-box;
+    border: 10px dotted green;
+    padding: 50px;
+    background-image: url(../imagenes/cafe.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: blue;
+}
+.bg-clip{/*Muestra la imagen desde donde le decimos, solo oculta, no redimensiona*/
+    background-clip: border-box;
+    border: 10px dotted green;
+    padding: 50px;
+    background-image: url(../imagenes/cafe.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: red;
+}
+.bg-attachment, .bg-attachment-2{
+    background-image: url(../imagenes/cafe.jpeg);
+    width: 100%;
+    background-size: contain;
+    background-attachment: fixed;
+    height: 300px;
+    border: 5px solid aqua;
+}
+.bg-attachment-2{
+    border: 5px solid yellow;
+}
+.bg-multiple{/*Con el background-multiple podemos poner varios fondos, en un mismo sitio o caja. Para agregar mas de un fondo tienen que ir separados los background-images por una coma. El orden de estos sera a la inversa de la cascada de css, esto quiere decir que el primer fondo que se declare sera el que este hasta arriba. ej 1ro hasta arriba, 2do por debajo del 1ro, 3ro por debajo del 2do y asi sucesivamente. Se puede asignar propiedas a los diferentes fondos de forma independiente, para esto tendremos que separar las propiedas con una coma y estas llevaran el orden de los fondos, esto quiere decir que el primer valor correspondera al primer fondo, el segundo valor al segundo fondo y asi sucesivamente*/
+    width: 100%;
+    height: 300px;
+    background-image: 
+        url(../imagenes/firefox.png),
+        url(../imagenes/Imagen\ muestra\ blender\ 10.jpg);
+    background-size: 15%, cover;
+    background-repeat: no-repeat;
+    background-position: bottom right, center;
+}

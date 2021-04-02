@@ -1,0 +1,30 @@
+/* 
+- Las variables tienen que estar dentro de un selector. Estas tienen herencia y cascada
+- Existen variables locales y globales, esto dependera del selector donde las declaremos.
+- El :root sirve para declararlas dentro del archivo en general, se podria decir que es para uso global
+- Su sintaxis es:
+    selector{
+        --nombre: variable(valor);
+    }
+    propiedad: var(--nombre-variable)
+*/
+:root{
+    --color: green;
+    --border: 10px solid yellow;
+}
+.text{
+    color: var(--color);
+}
+.article{
+    --color: red;
+}
+.checkbox:checked + .box{/*Si doy click en el input (checkbox) se estaria aplicando esta variable de color a la caja*/
+    --color: blue;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: var(--color);
+    border: var(--border);
+    text-align: center;
+}

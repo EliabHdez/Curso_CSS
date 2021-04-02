@@ -1,0 +1,48 @@
+/* -----Display----- */
+/* 
+- Nos permite definir como se comporta una caja
+- Def forma natural existen elementos en linea y elementos de bloque
+- Los valores de esta propiedad son:
+    - inline: Establece que la caja se comporte como si fuera un elemento en linea. Abarcara solo el contenido. Se pueden poner padding y margin, pero los margin solo podran ser en el eje horizontal, vaya que sean left o right, si se ponen margin en el eje vertical no se aplican
+    - block: Establece que la caja se comporte como si fuera un elemento en bloque. Abarcara todo el ancho de la pagina
+    - inline-block: Se comporta como un elemento en linea pero acepta width y height
+    - none: Oculta el elemento pero se sigue renderizando. No se respeta su espacio en el flujo
+    - table: Imita el comportamiento de una tabla. Actualmente ya no se usa
+    - list-item: Imita el comportamiento de una lista. Actualmente ya no se usa
+-CSS3 GRID
+    - flex: Maquetar componentes
+    - grid: Maquetar layout
+    */
+    /* Para convertir un elemento natural ya sea inline o block en alguno otro como block, inline, inline bock etc se tiene que aplicar el atributo "display" mas el valor que queramos que tenga este elemento */
+    
+    .block-title{/*Con los elementos en bloque por naturaleza se puede aplicar padding y margin en todos los ejes y estos seran respetados, ademas de que desplazara los demas elementos*/
+        background-color: aqua;
+        text-align: center;
+        padding: 32px;
+    }
+    .block{
+        background-color: red;
+        height: 30px;
+        padding: 10px;
+    }
+    .inline{/*En un elemento inline por naturaleza se pueden aplicar padding en todos los ejes, se pueden aplicar margins en el eje horizontal, pero como se puede observar no desplaza los demas elementos, solo crece la caja en su tamaño pero se encima en los otros elementos*/
+        background-color: lime;
+        padding-bottom: 50px;
+        margin-bottom: 50px;/*Como se puede observar el margin en el eje vertical no se aplica*/
+        margin-left: 80px;
+    }
+    .inline1_1{/*En un elemento inline se pueden aplicar padding en todos los ejes, se pueden aplicar margins en el eje horizontal, pero como se puede observar no desplaza los demas elementos, solo crece la caja en su tamaño pero se encima en los otros elementos*/
+        background-color: lime;
+        padding: 30px;/*Como podemos observar con el padding se rompe un poco la teoria de que el elemento inline solo abarca el contenido*/
+        margin-bottom: 50px;/*Como se puede observar el margin en el eje vertical no se aplica*/
+        margin-left: 80px;
+    }
+    .inline2{/*Con la propiedad display inline-block tomamos lo mejor de cada una y podemos utilizar padding, margin, width, height etc y estos seran respetados, esto se podra ver que al momento de aplicar estos valores los demas elementos se desplazaran pero sin perder la propiedad inline lo que hace que la caja sea mas grande o pequeña o simplemente mantenga su tamaño con respecto al contenido */
+        background-color: orange;
+        display: inline-block;
+        padding-bottom: 100px;
+        /* margin-bottom: 50px; */
+        margin-top: 50px;
+        margin-left: 150px;
+        margin-bottom: 50px;
+    }

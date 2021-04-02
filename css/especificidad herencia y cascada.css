@@ -1,0 +1,46 @@
+/*-----------------------------------*/
+/*
+    Etiqueta -> 1
+    Clases y pseudoclases -> 10
+    Id -> 100
+    Estilos en linea -> 1000
+    !important -> Gana
+*/
+/*-----------------------------------*/
+
+/* p{
+    color: green;
+}
+a{
+    color: green;
+} */
+/* El apartado de arriba nos muestra que si hay un link y queremos que este sea del mismo color que el texto tendriamos que modificar el color al link para igualarlo con el del texto y esto lo tendriamos que hacer de forma manual cada vez que cambiemos el color al texto. En el estilo de abajo podemos ver como hacer para que el color del link cambie de forma automatica cada vez que nosotros cambiemos el color al texto y esto se logra colocando el valor de "inherit" en el apartado/atributo de "color". De esta manera se no tendremos que hacerlo manualmente si no que cambiara de forma automatica y se ajustara al color del elemento padre (p) */
+
+/* 
+Nivel de importancia con la que trabajara CSS
+    -->important
+           ------>especificidad
+                        ------>cascada
+
+    Esto quiere decir que esto es lo que va a determinar que estilo va a tomar css, primero lo que tenga el apartado important, seguido de este rige la especificidad y por ultimo la cascada. En la parte de abajo vemos de forma mas clara esta forma de trabajar
+ */
+p{
+    color: black !important;
+}
+#parrafo{
+    color: orchid;
+}
+.parrafo{
+    color: orange;
+}
+p{
+    color: red;
+}
+a{
+    color: inherit;
+}
+p{
+    color: green;
+}
+
+/* En el apartado de arriba podemos ver que que aunque css trabaje en forma de cascada aqui no aplica porque tenemos un elemento que tiene important, esto machaca a todo lo demas, tanto a la especificidad como a la cascada, si quitamos ese important va a entrar a regir la especificidad donde vamos a ver que tendra mas importancia el id, seguido de la clase y por ultimo la etiqueta, debido a que la especificidad se rige porque pesa mas aunque en cascada este el mas pesado hasta arriba, esto no importara siempre le dara prioridad y si por ultimo quitamos este id y esta clase y nos quedamos con las etiquetas entrara a regir la cascada donde el texto de nuestros parrafos seran de color verde ya que esta por debajo del estilo que dice que los parrafos sean color rojo, si ponermos uno abajo del verde con otro color, sera este ultimo el que riga y determine el color de nuestos textos/parrafos */

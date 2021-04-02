@@ -1,0 +1,20 @@
+/* .link{
+    background-size: 20px;
+    background-color: white;
+    border: solid 3px rgb(81, 81, 245);
+    border-radius: 5px;
+    padding: 5px;
+    color:black;
+}
+.link:hover{
+    background-color: blue;
+    border: none;
+}
+.link:active{
+    border: solid 3px red;
+    background-color: white;
+    color: blue;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+} */

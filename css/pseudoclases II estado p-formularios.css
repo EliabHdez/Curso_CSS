@@ -1,0 +1,57 @@
+/*
+UI States
+    :enabled - Este es el estado natural o por defecto de los input del formulario
+    :disabled
+    :checked
+    :in-range
+    :out-of-range
+    :required
+    :optional - Este valor tambien viene por defecto en la mayoria de los input, con excepcion de los "required"
+    :valid
+    :invalid
+    :fullscreen
+*/
+/* Las pseudoclases de estado nos sirven para dar estilo a los input de los formularios, con las caracteristicas que tengan estos input desde el html, no van a cambiar esto parametros, solo darle estilos. Ej que al utilizar una pseudoclase disabled no quiere decir que cambiara los input a estado deshabilitado, quiere decir que le estaremos dando estilos a los input que ya tengan esta propiedad desde el html */
+.input, .input1, label{
+    display: block;
+}
+.input{
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 2em;
+}
+.input:enabled{
+    background-color: lightgreen;
+}
+.input:disabled{
+    background-color: red;
+    border: none;
+}
+.input:checked + label{
+    font-size: 2em;
+}
+.input:in-range{
+    background-color: blue;
+    color: white;
+}
+.input:out-of-range{
+    background-color: yellow;
+}
+.input1:optional{/*Esta pseudoclase se aplica en todos ya que como se menciono anteriormente viene en los input de forma predeterminada, con excepcion del required, en el cual no se esta aplicando*/
+    background-color: purple;
+}
+.input:required{
+    background-color: salmon;
+}
+.input:valid{/*La pseudoclase valid e invalid afecta a todos los input ya que el echo de que un input tenga un valor erroneo, fuera de rango, dentro de rango, este vacio o con caracteres que no deberian se considera como valido o invalido dependiendo del caso, pero por esta razon es por lo que estas dos pseudoclases afectan a todos los input*/
+    background-color: lightseagreen;
+}
+.input:invalid{
+    background-color: lightcoral;
+}
+.textarea:read-only{
+    background-color: lightskyblue;
+}
+.textarea2:read-write{
+    background-color: lime;
+}

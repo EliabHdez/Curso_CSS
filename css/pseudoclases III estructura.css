@@ -1,0 +1,112 @@
+/* 
+Structural
+    :root - Representa la raiz del documento (html) usando una pseudoclase tenemos mas especificidad que si usaramos html
+    :nth-child() - Selecciona al hijo "n" (independientemente del tipo de etiqueta)
+    :nth-last-child() - Selecciona al hijo "n" empezando a contar desde el ultimo (independientemente del tipo de etiqueta)
+    :first-child - Selecciona al primer hijo (independientemente del tipo de etiqueta)
+    :last-child - Selecciona al ultimo hijo (independientemente del tipo de etiqueta)
+    :only-child - Este selecciona el unico hijo que hay, esta pseudoclase solo funciona y tiene sentido cuando hay un solo hijo, si hay mas hijos no servira y por lo tanto no se aplicara
+        Los type funcionan igual que los child. La unica diferencia es que a diferencia de los child, a los type si les importa y toman en cuenta la etiqueta, mientras que los child solamente toman en cuenta el ser hijos y no la etiqueta que hay de por medio
+    :nth-of-type()
+    :nth-last-of-type()
+    :first-of-type
+    :last-of-type
+    :only-of-type - Este selecciona el unico hijo que hay, esta pseudoclase solo funciona y tiene sentido cuando hay un solo hijo, si hay mas hijos no servira y por lo tanto no se aplicara
+    :empty - Esta pseudoclase se aplica para los elementos vacios, es decir, etiquetas que no tienen contenido
+*/
+/*
+Valores posibles dentro de la pseudoclase nth-child:
+    odd - Impares
+    even - Pares
+    numeros enteros - 2, 3, 4...
+    /* equaciones (1n, 3n, 4n+1, n+4... ("n"es un multiplicador, va desde 0 hasta que se quede sin elementos)
+*/
+/*
+Negation
+    :not() - Selecciona el elemento que no cumpla la condicion, se puede poner cualquier selector salvo otro ":not"
+*/
+h2{
+    font-size: 2em;
+    text-align: center;
+}
+.paragraph{
+    background-color: limegreen;
+}
+.paragraph:last-child{
+    background-color: brown;
+}
+.paragraph:empty{
+    all: unset;/*Con all seleccionamos todo y con el valor unset lo que conseguimos es que reinicie todo a su estado original. Esto se aplica solo a la ultima etiqueta p ya que esta vacia y esto es gracias a la pseudoclase empty*/
+    /* padding: 0; */
+    /*Tambien podemos lograr el mismo resultado de eliminar el backgroud que se genera en esta etiqueta vacia con un padding con un valor de 0. Si se quita el padding o el all aparecera el background vacio*/
+}
+.paragraph, .paragraph1, .paragraph2, .paragraph3, .paragraph4, .paragraph5, .paragraph6, .paragraph6_2, .paragraph7, h3, div{
+    padding: 10px;
+}
+.paragraph:first-child{
+    background-color: yellow;
+}
+.paragraph:nth-last-child(2){/*Se esta saltando la etiqueta p que esta vacia que con el all:unset le quite el fondo para que no se veria su fondo vacio*/
+    background-color: grey;
+}
+.paragraph:nth-child(3){
+    background-color: orange;
+}
+.paragraph1:first-child{
+    background-color: red;
+}
+.paragraph1:last-child{
+    background: blue;
+}
+.paragraph1:nth-child(3){
+    background: grey;
+}
+.paragraph2:nth-child(odd){
+    background-color: lightcoral;
+}
+.paragraph2:nth-child(even){
+    background-color: lightseagreen;
+}
+.paragraph2:nth-child(5){
+    background-color: grey;
+}
+/* n siempre va a tener la regla de empezar en 0 esto quiere decir que es: primer valor = 0, segundo valor = 1, tercer valor = 2 y asi sucesivamente, esta regla es la que va a marcar como se va a multiplicar la n */
+.paragraph3:nth-child(3n){/*n primero vale 0 (no hay parrafo 0, nunca va a existrir por lo tanto siempre al inicio nunca veremos seleccionado nada, apartir de aqui es como va a ir multiplicando dependiendo del valor que le hayamos dado a n, en este caso 3), despues 1, luego 2 y por ultimo 3. En base a estos valores es conforme va a seleccionar, siendo 3x1=3, seleccionado parrafo 3, 3x2=6, seleccionado el parrafo 6, 3x3=9, seleccionado el parrafo 9 y asi sucesivamente*/
+    background-color: orange;
+}
+.paragraph3:nth-child(3n+1){/*En este caso aplica exactamente igual la multiplicacion de n pero como la pseudoclase lo especifica es sumado mas 1, ej 3x2=6 + 1 =7*/
+    background-color: orchid;
+}
+.paragraph4:nth-child(n+4){
+    background-color: chocolate;
+}
+.paragraph5:nth-last-child(even){/*Al utilizar nth-last-child la seleccion se hace de abajo hacia arriba, por lo tanto se invierten los pares y los impares, esto quiere decir que los pares pasan a ser impares y los impares pasan a ser pares ya que empieza a contar de abajo, esto va a suceder dependiendo del numero de parrafo que este al final. Ej, si el parrafo final tiene un numero par, pasara a ser impar (p-10 sera el p-1, p-9 sera el p-2 y asi sucesivamente). Si el ultimo parrafo termina en impar ahi no se rompe la numeracion par o impar. Ej, p-11 sera el p-1 (ambos son impares) p-10 sero p-2 (ambos son pares), aqui tendriamos una secuencia de numero pares e impares correcta, ya que los pares seguiran siendo pares y los impares seguiran siendo impares, caso contrario de cuando se termina en numero par*/
+    background-color: cornflowerblue;
+}
+/* ----- Las pseudoclases de tipo (type's) ----- */
+.paragraph6:first-of-type{
+    background: brown;
+}
+.paragraph6:nth-of-type(3){
+    background: blue;
+}
+.paragraph6:nth-last-of-type(5){
+    background-color: orange;
+}
+.paragraph6:last-of-type{
+    background-color: orchid;
+}
+/* ----- La pseudoclase :not ----- */
+.paragraph7:not(h3){
+    background-color: salmon;
+}
+.paragraph7:not(p){
+    background-color: seagreen;
+}
+/* El div toma el color verde esto debido a las reglas y parametros de la especificidad */
+.paragraph7:nth-child(4){
+    background-color: yellow;
+}
+.paragraph7:nth-last-child(3){
+    background-color: red;
+}

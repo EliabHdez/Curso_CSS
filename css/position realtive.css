@@ -1,0 +1,40 @@
+/* La position relative nos permite mover las cajas pero estan no pierden su punto de referencia y tampoco el espacio que tienen asignado desde un principio queda vacio, esto quiere decir que aunque la caja se mueva ningun otro elemento va a ocupar su lugar de inicio */
+/* Con el position relative podemos desplazar las cajas en el eje x, y y z-index, el z no quiere decir que sera 3d, este eje indica que una caja estara por encima de otra, ya sea que una tenga este valor declarado y la otra no o bien que ambas lo tengan pero cual estar arriba de cual dependera del valor z-index dado*/
+.box1, .box2{
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+.box1{
+    background-color: lime;
+    position: relative;
+    /* Los valores top, left, right y bottom admiten valores positivos y negativos. Al declarar el valor "position:relative" para mover la caja solo sera necesario declarar en que direccion nos queremos mover */
+    top: 50px;
+    left: 100px;
+    /* Los valores top y left tienen MAYOR peso que right y bottom, por lo tanto si estos valores estan declarados no es necesario poner right o bottom ya que no van a servir para nada. De echo aunque queramos mover las cajas en ese sentido seria bueno no poner esos campos ya que con top y left nos basta porque podemos poner valores positivos o negativos, por lo tanto con esos dos valores podemos mover las cajas en las cuatro direcciones*/
+    /* right: 30px;
+    bottom: 30px; */
+}
+.box2{
+    background-color: lightcoral;
+    position: relative;
+    top: -50px;
+    /* box-sizing: border-box;
+    padding: 50px 0; */
+}
+.box3{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: auto;
+    position: relative;
+    top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Como se puede observar en la pagina, la caja esta por debajo de los textos, pero esta no era su posicion inicial, su posicion inicial era entre los textos, sin embargo el texto inferior no subio aunque la caja bajo y esto se debe a que la caja tiene una posicion relativa, lo cual hace que podamos mover la caja pero esta no pierda su punto de origen, donde fue creada originalmente*/

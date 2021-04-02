@@ -1,0 +1,97 @@
+/* -------------Border------------ */
+/* 
+    Border style -> none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | initial | inherit
+
+        Las siguientes medidas dependen del navegador, por lo tanto no es recomendable utilizarlas
+                thick (ancho)
+                medium (medio)
+                thin (fino)
+
+    Border color -> css native | rgb | rgba | hsl | hsla | hexadecimal | transparent
+
+    El border trabaja de la misma manera que el margin y el padding, se puede poner un bordergeneral (border) y en estipular los 3 parametros necesarios para aplicarlos que son: tamaño, tipo de border y color. O bien se puede trabajar de forma independiente con el border de cada lado, asignando a cada uno estos tres valores. de igual manera si hay de 2 a 4 valores escritos tanto en medidas como en colores se aplicara la misma teoria que el margin y el padding, la cual es aplicar estos valores a top, right, bottom y left. Para trabajar de forma independiente, tendriamos que especificar con el border que vamos a trabajar: border-width, border-color y/o border-style
+
+        Las formas de trabajar con border serian las siguientes:
+
+            -border: width (en px, %, em) tipo o style (solid, dotted etc) color
+                ej: border: 5px solid black
+            -border-top: width style color
+            -border-right: width style color
+            -border-bottom: width style color
+            -border-left: width style color
+            -border-with: 1em (aplica para todos los lados)
+            -border-width: 2px 2px 2px 2px (top, right, bottom. left
+            -border-style: solid (aplica para todos los lados)
+            -border-style: solid dotted (1er valor top/bottom 2do valor left/right
+            -border-color: red (aplica para todos los lados)
+            -border-color: red green blue (1er valor top, 2do valor left/right 3er valor bottom)
+ */
+
+div{
+    box-sizing: border-box;
+}
+.box3, .box3_1, .box4, .box5, .box6{
+   background-color: red;
+   width: 150px;
+   height: 150px;
+   margin: 20px;
+}
+.box3{
+    border: 5px solid black;
+}
+.box3_1{/*Notese lo que se puede lograr con los diferentes parametros que ofrece el border, en este caso hacer un tipo sobre, pero se pueden lograr efectos como hacer flechas entre otras cosas*/
+    border: 50px solid black;
+    border-top-color: transparent;
+    border-top-width: 100px;
+}
+.box4{
+    border: 8px dotted blue;
+    border-right: none;
+}
+.box5{
+    border: 10px solid aqua;
+    border-color: aqua aqua aqua orange;
+    border-left-width: 20px;
+}
+.box6{
+    border: 30px dotted green;
+    border-style: dotted solid;
+}
+.box7, .box8, .box9, .box10, .box11, .box12, .box13, .box14{
+    background-color: red;
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+}
+.box7{
+    border-width: 10px;
+    border-style: double;
+}
+.box8{
+    border-width: 10px;
+    border-style: groove;
+}
+.box9{
+    border-width: 10px;
+    border-style: hidden;
+}
+.box10{
+    border-width: 10px;
+    border-style: inherit;
+}
+.box11{
+    border-width: 10px;
+    border-style: initial;
+}
+.box12{
+    border-width: 10px;
+    border-style: inset;
+}
+.box13{
+    border-width: 10px;
+    border-style: outset;
+}
+.box14{
+    border-width: 10px;
+    border-style: ridge;
+}

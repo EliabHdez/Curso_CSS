@@ -1,0 +1,86 @@
+h1{
+    text-align: center;
+}
+.header{
+    background-color: lightblue;
+    height: 50px;
+}
+.main{
+    background-color: lightseagreen;
+    height: 600px;
+}
+.footer{
+    background-color: rgb(240, 128, 128);
+    height: 200px;
+}
+
+/* ul{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+li{
+    line-height: 3;
+}
+a{
+    text-decoration: none;
+    color: red;
+    font-size: 1.2em;
+}
+.first-a2{
+    background-color: black;
+    color: white;
+}
+ */
+
+/* .first-ul{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+.first-li{
+    line-height: 3;
+}
+.first-a{
+    text-decoration: none;
+    color: red;
+    font-size: 1.2em;
+}
+.first-a_active{
+    color: yellow;
+    background-color: black;
+} */
+
+.menu1{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.menu1__item{
+    line-height: 3;
+}
+.menu1__link{
+    display: inline-block;
+    padding: 0 25px; /*1er valor es para arriba/abajo, 2do valor es para izq/der*/
+    text-decoration: none;
+    color: red;
+}
+/* .menu1__link--active{
+    background-color: black;
+    color: white;
+} */
+.menu1__item :hover{/*Me adelante un poco agregando el apartado hover. Esto no se vio en esta clase, asi que puedo no tomarlo en cuenta por el momento*/
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

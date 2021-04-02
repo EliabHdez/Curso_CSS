@@ -1,0 +1,40 @@
+/*----------Position sticky----------*/
+/* 
+- El valor sticky es una mezcla entre realtive y fixed
+- El elemento conserva su espacio en el flujo
+- Si no tiene dimensiones declaradas sus dimensiones se ajustan al contenido
+- Su punto de referencia no se modificara aunque movamos el elemento
+- Cuando hacemos scroll el elemento se movera hasta alcanzar el tope establecido */
+/* Los valores top, left etc con posicion sticky sirven para determinar el tope en donde queremos que este elemento tenga un comportamiento fijo */
+body{
+    margin: 0;
+}
+.slide{
+    background-color: gray;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+.menu{/*Es importanto notar que no tengo un width ya que el ancho que abarque la caja lo puedo controlar con los valores left y right del position*/
+    background-color: darkcyan;
+    padding: .5em;
+    text-align: center;
+    font-size: 2em;
+    width: auto;
+    position: sticky;
+    top: 0;/*Con es te valor teniendo una posicion sticky controlamos a que altura (en este caso de la parte superior) la caja permancera fija cuando se haga scroll. El 0 me indica que el elemento sera fijo hasta que alcanze el tope del viewport, si se le pongo 20, 30, 50 px etc este sera fijo cuando haya este espaciado entre este elemento y el tope de la pagina.*/
+}
+.title{
+    margin: 30px 50px;
+    font-size: 50px;
+    text-align: center;
+}
+.text{
+    margin: 0 100px;
+    font-size: 20px;
+}

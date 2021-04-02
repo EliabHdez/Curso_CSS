@@ -1,0 +1,116 @@
+/*-----Pseudoelementos-----*/
+/* 
+Se utilizan para dar estilo a partes especificas de un elemento
+    - La sintaxis es "selector::pseudo-element"
+    
+Existen 5 tipos de pseudoelementos:
+    - ::first-letter (elementos de bloque) Da estilo a la primera letra
+    - ::first-line (elementos de bloque) Da estilo a la primera linea
+    - ::before: Agrega contenido ANTES del elemento con el que se este trabajando este pseudoelemento La propiedad content es obligartoria y son elementos de linea por defecto, Son hijos del elemento al que pertenecen. En el valor del atributo es donde se anota el contenido deseado a mostrar y este tiene que ir dentro de comillas
+    - ::after: Agrega contenido DESPUES del elemento con el que se este trabajando este pseudoelemento. La propiedad content es obligatoria y son elementos de linea por defecto. Son hijos del elemento al que pertenecen. En el valor del atributo es donde se anota el contenido deseado a mostrar y este tiene que ir dentro de comillas
+    - ::selection: Da estilo a la selecion que hace el usuario en la pagina (actualmente esta retirado de la especificacion pero sigue en funcionamiento al cien por ciento)
+    */
+    
+    *::selection{
+        color: lime;
+        font-size: 20px;
+        background: red;
+    }
+    .title::first-letter{
+        color: red;
+        font-size: 60px;
+    }
+    .title2::first-letter{
+        color: red;
+        font-size: 20px;
+    }
+    .text::first-line{
+        color: blue;
+        font-size: 30px;
+    }
+    .inline::first-letter{/*Los pseudoelementos first-letter y first-line sirven solamente para elementos tipo block, en este caso el "span" al ser un elemento en linea por naturaleza se le tuvo que aplicar un display-block para que se puediera trabajar con el pseudoelemento first-letter*/
+        color: maroon;
+        display: block;
+    }
+    .text::selection{
+        background: yellow;
+        color: blue;
+    }
+    .text2::selection{
+        background: black;
+        color: yellow;
+    }
+    .text2::first-line{
+        color: darkred;
+        font-size: 20px;
+    }
+    .pesos{
+        font-size: 20px;
+    }
+    .pesos::before{
+        content: " El valor de un dolar en pesos es: ";
+        color: darkmagenta;
+
+    }
+    .pesos::after{
+        content: ".65";
+        color: darkcyan;
+    }
+    .pesos1{/*El estilo dado al padre padre del before/after tambien afecta a estos dos, sin importar que este contenido no sea un contenido tal cual del html y por ende no este escrito en el documento antes mencionado, tampoco importa si el estilo no esta declarado en el apartado del before/after, con el hecho de que lo contenga el apartado del padre del cual son hijos es suficiente para que se vean afectados y adquieran ese comportamiento o estilo. Ej: El estilo italic, el tamaño de letra y el color estan implementados en el padre (pesos) y no estan implementados en el after ni en el before y aun asi adquieren estos estilos de fuente, tamaño y color*/
+        font-size: 30px;
+        font-style: italic;
+        color: darkgreen;
+    }
+    .pesos1::before{
+        content: "$";
+    }
+    .pesos1::after{
+        content: ".65";
+    }
+    .pesos2::before{/*Podemos poner cualquier tipo de contenido o elemento en el before o el after como se muestra a continuacion en donde ponemos dos cajas con diferentes propiedas. Es indispensable que el apartado content tenga en su valor las comillas (") aunque entre estas se quede vacio el campo pero las comillas las tiene que llevar, si no las tiene en este caso en particular la caja no se aplicara y por ende no sera visible*/
+        content: "";/*En este apartado del content es extrictamente necesario que lleven las comillas, aunque no se ponga nada entre ellas ya que de no ser asi no se aplicara el after o el before en cuestion*/
+        background: yellow;
+        width: 50px;
+        height: 50px;
+        display: block;
+    }
+    .pesos2::after{
+        content: "";
+        background: lime;
+        width: 100px;
+        height: 100px;
+        display: block;
+    }
+    .pesos3::before{
+        content: "b1";
+        background: blue;
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+    }
+    .pesos3::after{
+        content: "b2";
+        background: orange;
+        width:100px;
+        height: 100px;
+        display: inline-block;
+    }
+    .pesos4::before{
+        content: "b1";
+        background: aqua;
+        width: 100px;
+        height: 100px;
+        display: inline;
+    }
+    .pesos4::after{
+        content: "b2";
+        background: black;
+        /*Como se puede observar aqui los valores de width y height no sirven ni se aplican ya que son elementos en linea*/
+        width:100px;
+        height: 100px;
+        display: inline;
+        color: white;
+    }
+    /* Dependiendo del tipo de display que pongamos en como se acomodara el after y el before. Si es display tipo block estos se colocaran por encima y debajo, si es tipo inline-block o inline se colocaran por delante y detras, la diferencia sera en que el elemnto inline-block podra ser modificable conforme su alto y ancho */
+
+    /* Cuando se trabaja con pseudoelementos before y after estos no podran ser seleccionados por el usuario en la pagina, son visibles, pero no se puede interacturar con ellos, no se pueden seleccionar*/

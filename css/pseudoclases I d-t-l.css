@@ -1,0 +1,141 @@
+/* -----Pseudoclases-----*/
+/* 
+- Dynamic
+    :link (links) - Link no visitado
+    :visited (links) - Link visitado
+    :hover - Al poner el mouse sobre un elemento. Funciona con cualquier elemento que se encuentra en nuestro pagina y en el doc html
+    :active (links) - Al momento del click
+    :focus - Cuando el elemento tiene el foco
+    
+- Target
+    :target - Elemento que es objetivo de un marcador o ancla
+    
+- Language
+    :lang() - Elemento que contiene el atributo lang que especifiquemos
+*/
+/* 
+UI States
+    :enabled
+    :disabled
+    :checked
+    :in-range
+    :out-of-range
+    :required
+    :optional
+    :valid
+    :invalid
+    :fullscreen
+*/
+/* 
+Structural
+    :root
+    :nth-child()
+    :nth-last-child()
+    :nth-last-of-type()
+    :nth-last-of-type()
+    :first-child
+    :last-child
+    :first-of-type
+    :last-of-type
+    :only-child
+    :only-of-type
+    :empty
+*/
+/*
+Negation
+    :not()
+*/
+
+.title{
+    margin-top: 80px;
+}
+.title:hover{
+    color: blueviolet;
+}
+[class*="link"]:visited{
+    color: darkcyan;
+}
+[class*="link"]:link{
+    color: red;
+}
+[class*="link"]:active{
+    color: yellow;/*NO CAMBIA DE COLOR*/
+    background-color: black; /*NO CAMBIA DE COLOR*/
+    font-size: 20px;
+}
+[class*="link"]:hover{
+    color: white;
+    background-color: black;
+}
+.buttom{
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    background-color: red;
+    padding: 10px;
+    border-radius: 20px;
+}
+.buttom:active{
+    color: yellow;/*NO CAMBIA DE COLOR*/ /*CHECAR ESTE PROBLEMA*/
+    background-color: black;/*NO CAMBIA DE COLOR*/
+    transform: scale(.8);
+}
+.buttom:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid red;
+    border-radius: 20px;
+}
+.text{
+    margin-top: 1000px;
+    margin-bottom: 1000px;
+}
+.input:focus{
+    background-color: lightblue;
+    color: black;
+    border: blue solid 2px;
+    border-radius: 10px;
+    width: 180px;
+    height: 3em;
+    outline: none;
+}
+.input:hover{
+    background-color: lightblue;
+    border-radius: 10px;
+    width: 180px;
+    height: 3em;
+}
+.span{
+    display: block;
+}
+.span:lang(en){
+    color: blue;
+}
+.span:lang(es){
+    color: goldenrod;
+}
+.menu{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+    padding: 15px;
+}
+.menu:visited{
+    color: white;
+}
+.text:target{/*La pseudoclase target solo le puede aplicar cuando hay un marcador o ancla como en este caso que el texto (p) cuenta con un id y este se enlaza al enlace (a)*/
+    padding-top: 80px;/*El padding en el target sirve para que el elemento al que es reedirigido con el target no se encime en el enlace*/
+}
+.text2{
+    margin-bottom: 1000px;
+}
+.text2:target{
+    padding-top: 100px;
+}

@@ -1,0 +1,76 @@
+/*Selectores de etiqueta: Puedes seleccionar como su nombre lo indica por medio de etiquetas, el detalle esta en que modificara todas las etiquetas que sean iguales, por ej todos los p, todos los h1, todos los div etc*/
+
+h1{
+    color: blue;
+}
+p{
+    color: red;
+}
+
+/*Selectores de clase: Esto nos permite seleccionar etiquetas que tengas una clase en especifico y con ello cambiar el estilo de las etiquetas que tenga la misma clase: Esto sirve bastante bien para separar etiquetas iguales pero que no queramos modificar todas estas de la misma manera*/
+
+/*Para trabajar con una clase necesitamos anteponer al nombre de la clase un punto (. ), este punto nos indica que estamos trabajando con una la clase de una etiqueta*/
+
+.title{
+    color: green;
+}
+.text{
+    color: yellow;
+}
+
+/*Selectores de id: Este nor permite dar estilo a las etiquetas que tengan un id, sin embargo no es recomendable ya que el id dentro de html se ocupa como anclaje o identificador, no como elemento para dar estilo, sin embargo se puede hacer.*/
+
+/*Para trabajar con los id en css necesitamos anteponer al nombre del id una almohadilla/simbolo de gato (#), esto nos indicara que en ese apartado estamos trabajando sobre un id*/
+
+#title{
+    color: aqua;
+}
+#text{
+    color: blueviolet;
+}
+
+/*Selectores universales: Estos selectores nos sirven para abarcar todo lo que se encuentra en nuestro archivo html. Sin embargo si tenemos otros estilos asginados a etiquetas, clases etc tendran mas peso estos estilos que el estilo universal como es el ejemplo de abajo, que aunque hay un color general para la fuente de color rojo, este no es visible ya que tenemos estilos para los textos por medio de sus etiquetas, clases etc. El unico que toma que es visible es el background ya que no tenemos ningun otro estilo que interfiera con este*/
+
+*{
+    background-color: black;
+    color: pink ;
+}
+
+/*Selectores de atributo: Estos selectores permiten trabajar con las etiquetas que contengan atributos. Hay diferentes maneras de trabajar con estos, ya que podemos trabajar con el atributo solo, con el atributo y sus valores etc*/
+
+/*Selecciona los elementos que tienen este atributo*/
+[href]{
+    color: orange;
+}
+
+/*Selecciona los elementos que tienen este atributo y ese valor*/
+[href="#"]{
+    color: orangered;
+}
+
+/*Con la tilde(~) nos permite seleccionar los elementos que tienen ese atributo y el valor al menos una vez*/
+[class~="verde"]{
+    color: green;
+}
+
+/*Con el palo( | ) seleccionamos los elementos que tienen ese atributo y exactamente ese valor o bien que empiece por el valor seguido de un guion*/
+[class|="verde"]{
+    color:blue;
+}
+
+/*Con el potenciador(^) seleccionamos los elementos que tienen ese atributo y empiezan por ese valor*/
+[class^="verde"]{
+    color:purple
+}
+
+/*Con el signo de pesos/dollar($) seleccionamos los elementos que tienen ese atributo y terminan con ese valor*/
+[class$="verde"]{
+    color:steelblue
+}
+
+/*Con el asterisco(*) seleccionamos los elementos que tienen ese atributo y contengan ese valor*/
+[class*="verde"]{
+    color: white;
+}
+
+/*CABE ACLARAR QUE MUCHOS DE LOS ESTILOS ESTAN CHOCANDO ENTRE ELLOS Y ES POR ESO MISMO QUE DE TODOS LOS TIPOS DE SELECTORES QUE PROBAMOS SOLO SEAN 4 LOS QUE ESTEN APLICADOS, YA QUE SON EL NUMERO DE ELEMENTOS CON LOS CUALES ESTAMOS TRABAJANDO Y A LOS CUALES SE LOS ESTAMOS APLICANDO. PARA PODER VISUALIZAR MEJOR LOS EFECTOS DE CADA TIPO DE SELECTOR HACEMOS PRUEBAS POR SEPARADO O BIEN AÑADIMOS MAS ELEMENTOS PARA PODER JUGAR CON TODOS ESTOS SELECTORES Y QUE NO CHOQUEN ENTRE ELLOS Y SUS VALORES*/

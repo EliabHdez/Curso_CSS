@@ -1,0 +1,63 @@
+/* ------------ Outline ------------ */
+/* 
+    Outline style -> none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset | initial | inherit
+
+        Las siguientes medidas dependen del navegador, por lo tanto no es recomendable utilizarlas
+                thick (ancho)
+                medium (medio)
+                thin (fino)
+
+    Outline color -> css native | rgb | rgba | hsl | hsla | hexadecimal | transparent
+
+    El outline trabaja de la misma manera que el border, margin y el padding, se puede poner un bordergeneral (border) y en estipular los 3 parametros necesarios para aplicarlos que son: tamaño, tipo de border y color. O bien se puede trabajar de forma independiente con el outline de cada lado, asignando a cada uno estos tres valores. de igual manera si hay de 2 a 4 valores escritos tanto en medidas como en colores se aplicara la misma teoria que el border, margin y el padding, la cual es aplicar estos valores a top, right, bottom y left. Para trabajar de forma independiente, tendriamos que especificar con el outline que vamos a trabajar: outline-width, outline-color y/o outline-style
+
+        Las formas de trabajar con outline serian las siguientes:
+
+            -outline: width (en px, %, em) tipo o style (solid, dotted etc) color
+                ej: 
+            -outline: 5px solid black
+            -outline-top: width style color
+            -outline-right: width style color
+            -outline-bottom: width style color
+            -outline-left: width style color
+            -outline-with: 1em (aplica para todos los lados)
+            -outline-width: 2px 2px 2px 2px (top, right, bottom. left
+            -outline-style: solid (aplica para todos los lados)
+            -outline-style: solid dotted (1er valor top/bottom 2do valor left/right
+            -outline-color: red (aplica para todos los lados)
+            -outline-color: red green blue (1er valor top, 2do valor left/right 3er valor bottom)
+ */
+
+.box1{
+    width: 80%;
+    margin: 50px auto; /*El "auto" me permite centrar la imagen dentro del espacio del viewport en el lado left y right. Asi mismo se puede hacer de forma independiente con cada uno pero esta es la forma mas comoda y rapida de hacerlo. Esto solo se puede hacer con los elementos de tipo bloque*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgauto{
+    box-sizing: border-box;
+    max-width: 100%;
+    border: 10px solid aqua;
+    outline: 5px solid aqua;
+    outline-offset: -30px;
+}
+.text{
+    position: absolute;
+    color: red;
+    font-size: 28px;
+    margin-bottom: 180px;
+}
+.text1{
+    position: absolute;
+    color: lightcoral;
+    font-size: 25px;
+}
+.imgauto1{
+    box-sizing: border-box;
+    max-width: 100%;
+    border: 10px solid lightcoral;
+    outline: 5px solid lightcoral;
+    outline-offset: -30px;
+}

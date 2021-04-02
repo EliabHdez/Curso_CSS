@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/sintaxis y selectores.css">
+    <title>Mi primera pagina web</title>
+</head>
+
+<!------------------------------------------------------------------->
+<!--Formas de integrar css en html
+    <style> "Este metodo va dentro de la etiqueta head y no requiere un documento css externo"
+        p{
+            color.red;
+        }
+
+    <h1 style= "color blue">Soy un encabezado</h1> "Estilo en linea, no recomendado para estilos estaticos, solo para estilos que se tienen que calcular en tiempo real, como por ej con Javascript. Si se utiliza este metodo es necesario ponerlo directamente en la etiqueta que queremos que lleve el estilo"
+
+     <link rel="stylesheet" href="style.css"> "Este metodo es el mas apropiado y recomendado, Esta etiqueta se ponen dentro de la etiqueta head y nos permite llamar un archivo css a nuestro documento html para que queden vinculados. El "rel" hace referencia al tipo de archivo que vamos a traer, en este caso un css (stylesheet) y "href" es la ruta junto con el archivo ej. /css/estilos.css. Requiere que tengamos un documento css externo donde estemos trabajando toda la parte del diseño
+    
+     <style> "Esta es otra forma de traer un archivo css a nuestro documento html, sin embargo no es la mas apropiada ni la mas recomendable. Esta forma requiere estar dentro de la etiqueta style y ademas tambien requiere un documento css externo, el cual va a ser el que estemos trabajando para el diseño y el que regira este url para darle estilo a nuestra pagina"
+        @impor url("styles-dist.css");
+     </style>
+-->
+
+<body>
+    <h1 class="">Soy un encabezado</h1>
+        <p class="">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ea delectus repellat debitis consequatur minima laborum illo quae nesciunt optio autem, explicabo praesentium perspiciatis fugiat rerum mollitia voluptates similique. Iure!
+        </p>
+    <h1 class="title">Soy un encabezado</h1>
+        <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ea delectus repellat debitis consequatur minima laborum illo quae nesciunt optio autem, explicabo praesentium perspiciatis fugiat rerum mollitia voluptates similique. Iure!
+        </p>
+    <h1 id="title">Soy un encabezado</h1>
+        <p id="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ea delectus repellat debitis consequatur minima laborum illo quae nesciunt optio autem, explicabo praesentium perspiciatis fugiat rerum mollitia voluptates similique. Iure!
+        </p>
+
+        <a class="orange" href="">Enlace rojo-verde</a>
+        <a class="rojo" href="#">Enlace rojo</a>
+        <a class="verde" href="#">Enlace verde</a>
+        <a  class="verde rojo" href="#">Enlace verde-rojo</a>
+
+        <h1 class="subh1">Titulo</h1>
+        <h2>Subtitulo</h2>
+        <h2>Otro subtitulo</h2>
+        <h3>Subtitulo del subtitulo</h3>
+        <h3>Subtitulo del subtitulo del subtitulo</h3>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. sp Ducimus ut eius <span> officia harum impedit</span> fugiat iusto libero <span>SOY UN SPAN</span> sequi accusantium tempore recusandae nihil aliquid at voluptatem, eum iure rem dolor incidunt?
+            </p>
+            <span>SOY UN SPAN</span>
+        </div>
+</body>
+</html>
