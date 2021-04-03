@@ -7,8 +7,9 @@
     color:black;
 }
 .link:hover{
-    background-color: blue;
-    border: none;
+    background-color: black;
+    border: solid 3px black;
+    color: white;
 }
 .link:active{
     border: solid 3px red;
@@ -18,15 +19,119 @@
     margin-bottom: 20px;
     margin-top: 20px;
 }
+
+/*A los tipos de letra que existen se les denomina fuentes o tipografias
+
+Familias tipograficas
+    Tienen nombre propio
+        Arial, Times New Roman, Open sans, Ubuntu etc
+        
+Familias genericas o seguras
+    Su nombre se basa en sus caracteristicas
+        serif: Tienen un adorno en sus caracteristicas
+        sans-serfi: Tienen un corte seco en los remates
+        cursive: Emulan tipografia manuscrita
+        monospace: Todos los caracteres tienen el mismo ancho
+        
+FONT
+    font-family: Establece la familia tipografica
+        Se utiliza el nombre propio de la fuente o una familia generica, se recomienda utilizar siempre fuentes de reserva
+        ('Times New Roman', Times, serif) -  Si la fuente tiene mas de una palabra, esta se tiene que escribir con espacios y entre comillas simples o dobles
+    font-size: Establece el tamaño de la fuente
+        Se define en unidades
+            px: pixeles (medida absoluta)
+            em: medida relativa al contexto (al padre)
+            rem: medida relativa al html (documento)
+            %: medida relativa al tamaño actual
+            
+            vh: medida relativa al height del viewport
+            vw: medida relativa al width del viewport
+            vmin: medida relativa al valor minimo del viewport. Esta medida se ocupa en el responsive design
+            vmax: medida relativa al valor maximo del viewport. Esta medida se ocupa en el responsive design
+            
+    font-weight: Establece el grosor de la fuente
+        bold | normal | 100-900
+    font-style: Establece el estilo de la tipografia
+        normal | italic | oblique*/
+
+body{
+    font-size: 30px;
+}
 .title{
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    font-style: oblique;
 }
+.span1{
+    font-size: 2em;
+}
+.span2{
+    font-size: 2rem;
+}
+/* Que es lo que esta sucediendo arriba con el font-size???
+    Lo que pasa es que las medidas em, se basan en la medida del padre, esto quiere decir que el padre del span es title y el de title es body, por lo tanto, el font size de title tiene el doble del body y el span tiene el doble del title, pero al momento de que el title ya tiene el doble, el span tiene el doble del doble, es decir 4 veces mas que el body. Ej si body tiene 2, title tiene 4 y span tiene 8.
+    
+    Con el porcentaje es muy similar, va creciendo conforme al padre que lo rige, que lo antecede
+    
+    En cambio el rem es diferente ya que rem se basa en la medidad generalizada de todo el documento, al parecer es una medida estandar la cual es 16px, por lo tanto el spon2 tiene 32 px*/
 .text{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: cursive;
+    font-size: 5vw;
+    font-weight: bold;
 }
 .link{
-    font-family: cursive;
+    font-family: monospace;
 }
 .button{
-    font-family: cursive;
+    font-family: monospace;
 }
+.box_item1{
+    font-weight: bold;
+}
+.box_item2{
+    font-style: italic;
+}
+
+/* TEXT
+    text-transform: Transforma el texto a mayusculas, minusculas, etc
+        lowercase - minusculas | uppercase - mayusculas | capitialize - Primera letra de cada letra en mayuscula
+        
+    text-align: Alinea el texto del elemento a la izquierda, derecha, etc. SOLO ELEMENTOS DE BLOQUE (excepto en botones, que aunque sean elementos en linea funciona)
+        center | left | right | justify
+        
+    text-decoration: Establece la decoracion del texto
+        overline | line-throught | underline | none
+        
+    text-indent: Mueve la primera linea de un texto. SOLO ELEMENTOS DE BLOQUE*/
+
+.title{
+    text-transform: lowercase;
+}
+.text{
+    text-indent: 50px;
+    text-transform: capitalize;
+    text-align: justify;
+    text-decoration: underline;
+}
+.link, .button, .box_item1{
+    text-transform: uppercase;
+}
+.link{ /*Cabe señalar que con el link no funciona ya que el text align solo funciona con elementos de bloque, por lo tanto tuve que ocupar un display block para que asi funcionara el text align, si quito este display block veremos que por si solo el text align no surte efecto*/
+    display: block;
+    text-align: center;
+}
+.button{ /*Aqui se puede apreciar que para mover o centrar el button tuve que hacer uso de position y margin, ya que el text-align no funciona en este tipo de elementos*/
+    position: relative;
+    margin: 15px 220px;
+}
+.box_item1{
+    text-align: right;
+    text-decoration: overline;
+}
+.box_item2{
+    text-align: left;
+    text-decoration: line-through;
+}
+    /* OTHER
+        line-height: Establece la altura de la linea
+        letter-spacing: Establece la separacion de las letras con una medida en cualquier unidad*/
