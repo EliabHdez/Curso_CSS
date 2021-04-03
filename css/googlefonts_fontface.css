@@ -1,0 +1,38 @@
+body{
+    padding: 30px;
+}
+/* Sitios gratuitos para fuentes que no estan disponibles en google fonts
+        https://www.dafont.com/es/
+        https://www.1001fonts.com 
+*/
+/* Para utilizar fuentes de google fonts, tenemos dos formas
+        1.- Hacerlo de forma standa: Para hacerlo de esta manera copiamos el link que nos proporciona la pagina en nuestro archivo html, dentro de nuestro head, como cualquier otro link y posterior a eso copiamos y pegamos el codigo css que nos lo proporciona tambien la pagina de google fonts, este lo copiamos en nuestro archivo de estilos css, este no es mas que el codigo para esteblecer nuestra font-family, pero con la respectiva fuente que viene de google fonts. En el archivo css lo pegamos en body o en donde queramos ocupar este tipo de fuente
+
+        2.- Hacerlo por medio del import. Este se pegaria en el css o en el html por medio de la etiqueta style. Lo recomendable es pegarlo directamente en css o si se ocupa sass, pegarlo en el archivo principal de sass
+*/
+/* Lo comun es utilizar una fuente para titulos y otra para texto. Los titulos pueden llevar un tipo de fuente mas gariboleada, con mas adorno o mas llamativas ya que no es mucho texto y es algo que queremos que resalte y se note, mientras que los textos deben de llevar un tipo de fuente mas amigable a la lectura y al ojo, para que su lectura sea comoda y facil */
+
+/* Font face
+    Para utilizar font face de entrada es necesario descargar o tener la fuente a utilizar. Los sitios del inicio del archivo es para descargar fuentes que no estan disponibles en google 
+    
+    Para hacer uso de las fuentes que tengamos o descarguemos es necesario hacerlo de la siguiente manera:
+        @font-face{
+            - aqui ponemos un "src" para traer por medio de una ruta/url la  fuente. LA ruta tiene que ser donde este nuestra fuente guardad y que contenga el archivo .ttf. Es preferible que las fuentes las tengamos ya dentro de nuestra carpeta donde tenemos todos los archivos relacionados con nuestro proyecto/pagina web, esta carpeta de preferencia que lleve el nombre fonts y puede almacenarse dentro de una carpeta llamada assets donde esta ultima almacenara todos los archivos que ocuparemos para nuestra pagina como imagenes, videos, musica, fuentes etc
+            - aqui ponemos font-family y le asignamos un nombre a la fuente que estamos trayendo por medio del font face, este nombre es personalizado y es algo asi como que indica que es una fuente propia, al menos dentro de nuestros archivos, siguiendo las mismas reglas que para la fuentes ya existentes, como que si va a tener mas de una palabra, tiene que ir con espacion y entre comillas. Esto se hace para que cuando la vayamos a ocupar en una etiqueta, clase etc, por medio del nombre que le asignamos la podamos llamar con el font-family y asi establecerla como una fuente
+        }*/
+@font-face{
+    src: url(../fonts/overconsumption/Overconsumption.ttf);
+    font-family: 'custom font 1';
+}
+h1{
+    font-family: 'custom font 1', Arial, Helvetica, sans-serif; /*Recordar poner fuentes de reserva para que si la fuente no se encuentra, tengamos alguna otra que mostrar*/
+    /* Si quitamos o cambiamos la fuente que descargamos podremos ver que estaria jalando la fuente de reserva */
+    font-size: 50px;
+}
+h2{
+    font-family: 'Bebas Neue', cursive;   
+}
+p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+}

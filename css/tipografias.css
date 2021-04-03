@@ -76,7 +76,7 @@ body{
     En cambio el rem es diferente ya que rem se basa en la medidad generalizada de todo el documento, al parecer es una medida estandar la cual es 16px, por lo tanto el spon2 tiene 32 px*/
 .text{
     font-family: cursive;
-    font-size: 5vw;
+    font-size: 4vw;
     font-weight: bold;
 }
 .link{
@@ -102,16 +102,16 @@ body{
     text-decoration: Establece la decoracion del texto
         overline | line-throught | underline | none
         
-    text-indent: Mueve la primera linea de un texto. SOLO ELEMENTOS DE BLOQUE*/
+    text-indent: Mueve la primera linea de un texto. SOLO ELEMENTOS DE BLOQUE. Se pueden ocupar medidas comp pixeles, em, rem, y casi cualquier tipo de medida que sea valida*/
 
 .title{
     text-transform: lowercase;
 }
 .text{
-    text-indent: 50px;
+    text-indent: 50px; /*Tambien se pueden poner valores negativos*/
     text-transform: capitalize;
     text-align: justify;
-    text-decoration: underline;
+    text-decoration: underline; /*Valor por defecto que traen los enlaces*/
 }
 .link, .button, .box_item1{
     text-transform: uppercase;
@@ -119,6 +119,7 @@ body{
 .link{ /*Cabe señalar que con el link no funciona ya que el text align solo funciona con elementos de bloque, por lo tanto tuve que ocupar un display block para que asi funcionara el text align, si quito este display block veremos que por si solo el text align no surte efecto*/
     display: block;
     text-align: center;
+    text-decoration: none; /*Con este valor de none en el text decoration le quitamos el subrayado que traen por defecto los enlaces*/
 }
 .button{ /*Aqui se puede apreciar que para mover o centrar el button tuve que hacer uso de position y margin, ya que el text-align no funciona en este tipo de elementos*/
     position: relative;
@@ -132,6 +133,18 @@ body{
     text-align: left;
     text-decoration: line-through;
 }
-    /* OTHER
+/* OTHER
         line-height: Establece la altura de la linea
         letter-spacing: Establece la separacion de las letras con una medida en cualquier unidad*/
+.box_item3{
+    background-color: lime;
+    border: solid 10px red;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    line-height: 200px; /*Este parametro nos sirve para centrar de forma vertical el texto dentro de un elemento de bloque, para conseguir el centrado total como se puede ver actualmente ya solo despues ocupaamos un text align. Para conseguir este centrado vertical basta con poner el mismo valor en tamaño que tiene el contenedor en su ancho y su alto*/
+    text-align: center;
+}
+.text_1{
+    letter-spacing: 30px; /*Con este valor establecemos el espacio entre cada una de las letras*/
+}
