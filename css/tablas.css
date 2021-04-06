@@ -1,0 +1,79 @@
+/* 
+Estilos en los tablas
+        
+        table-layout: Define como se comportan las dimensiones de una tabla y los anchos de las columnas
+                automatic: Valor por defecto
+                fixed: Necesita in width declarado, si no se le da un ancho a cada columna se distribuyen equitativamente
+       
+         caption-side: Define donde se coloca el caption de una tabla
+                top: Valor por defecto
+                bottom: Se coloca al pie de la tabla
+
+         border-spacing: Controla el espacio entre las celdas, se declara con una medida en cualquier unidad
+    
+         border-collapse: Controla si las celdas se mantienen juntas o separadas
+                separate: Valor por defecto
+                collapse: Junta lasceldas para no
+    
+        empty-cells: Controla que hacer con las celdas vacias
+                show: Valor por defecto
+                hide: Oculta las celdas vacias
+*/
+.title_table{
+        font-size: 40px;
+}
+.table{
+        table-layout: fixed;
+        width: 100%;
+        text-align: center;
+        empty-cells: hide;
+}
+.table, .table_head, .table_data{
+        border-spacing: 40px;
+        border: solid 5px lime;
+        border-collapse: collapse; /*Con el border collapse lo que conseguimos es darle ese aspecto mas de tabla al juntar los border de las celdas, si este parametro lo quitamos o ponemos el valor separate (que es el que viene por defecto, tendriamos una tabla con bordes como la de abajo (la roja))*/
+        padding: 5px;
+}
+.table_data{
+        background-color: yellow;
+}
+.table_1{
+        border:solid 3px  red;
+        table-layout: fixed;
+        width: 100%;
+        text-align: center;
+        caption-side: bottom; /*Cambia la posicion del titulo de la tabla, en este caso abajo de la misma*/
+        empty-cells: hide; /*Esto lo que hace es ocultar las celdas vacias, como se puede observar en la tabla roja no se ve la celda que no contiene informacion, pero esto solo pasa en la tabla roja y no en la verde, porque? Por el border collapse de la verde. Esta funcion solo sirve si no hay un border collapse de por medio, ya que con el border collapse, junta las celdas y se salta este comando, como se puede ver en la tabla verde*/
+        border-spacing: 10px;
+}
+.table_head_1, .table_data_1{
+        border: solid 3px red;
+        border-spacing: 10px;
+}
+.table_container{    
+        font-size: 2.2vmin;
+}
+.title_table_2{
+        font-size: 40px;
+        font-style: italic;
+        font-weight: bold;
+}
+.table_2{
+        table-layout: fixed;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+}
+.table_2, .table_head_2, .table_data_2{
+        padding: 12px;
+        background-color: black;
+        border: solid 3px lime;
+}
+.table_head_2, .table_row_2{
+        color: white;
+        font-weight: lighter;
+        font-family: Arial, Helvetica, sans-serif;
+}
+.table_head_2{
+        font-size: 16px;
+}
