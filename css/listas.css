@@ -1,0 +1,80 @@
+/* Normalmente necesitamos resetear los estilos por defecto de una lista
+        margin-top: 0,
+        margin-buttom: 0,
+        padding-left: 0,
+        list-style: none;
+        
+Hay 3 propiedades para las listas, se pueden aplicar al padre o a los elementos de la lista
+
+    list-style-ype: Establece el estilo de viñeta
+            disc - Circulo relleno
+            circle - Circulo sin relleno
+            square - Cuadrado
+            decimal - Enumarado (1, 2, 3, etc)
+            decimal-leading-zero - Enumerado anteponiendo un cero (01, 02, 03, etc)
+            lower-roman - Numeros romanos en minusculas
+            upper-roman - Numeros romanos en mayusculas
+            lower-greek - Alfabeto griego
+            lower-latin - Alfabeto en minusculas
+            upper-latin - Alfabeto en mayusculas
+            armenian - Alfabeto armenio
+            georgian - Alfabeto gregoriano
+            lower-alpha - Este hace lo mismo que el latin ya que nuestro idioma es latino, si tuvieras otro idioma y nuestro teclado fuera en otro idioma, tendriamos las letras de dicho idioma (como el ruso que cirilico)
+            upper-alpha - Lo mismo que el lower-alpha
+            
+        list-style-position: Hace que las viñetas se coloquen por dentro o por fuera del elemento
+            outside | inside
+            
+        list-style-image: Pone una imagen en lugar de la viñeta, no se suele utilizar porque hay formas mucho mas efecientes de hacerlo
+        
+        Normalmente se suele utilizar el shorthand list-style*/
+
+.list_0{ /*Con esto lo que hacemos es resetear los estilos de la lista para que posteriormente nosotros le vayamos dando el estilo que queramos a dicha lista, se suele hacer con frecuencia ya que las listas sirven para hacer menus, por lo tanto al inicio las dejamos sin estilos para que apartir de ahi empecemos a darle la forma que queramos*/
+    /* Esto va en el padre de la lista: ul, ol, pl */
+    margin-top: 0;
+    margin-buttom: 0;
+    padding-left: 0;
+    list-style: none; /*Se suele utilizar el shorthand none para deshabilitar todos los estilos de la lista*/
+}
+.list, .list_1{
+    list-style-type: none;
+}
+/* Para poner imagenes podemos ocupar list-style-image, sin embargo no es lo recomendable ya que esto puede dar problemas visuales */
+/* A continuacion veremos dos formas de poner imagenes con viñetas personalizadas sin la necesidad del elemento antes mencionado. La primera sera con el subelemento ::before y la segunda con el background */
+
+/* Este es el primer metodo, pero como podemos observar la imagen no esta centrado tal cual en medio del nombre de los elementos de la lista, mas bien esta a nivel de piso igual que los elementos */
+.list__item::before{
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-image: url(/imagenes/check.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-right: 1em;
+}
+
+/* Este es el segundo metodo, en esto no necesitamos el subelemento ::before, a diferencia del metodo anterior podemos observar que con este metodo la imagen de la viñeta personalizada ya esta centrada conforme al elemento de la lista, ademas de que la imagen tienen un tamaño un poco mas grande */
+
+.list__item_1{
+    /* background-image: url(/imagenes/check.png);
+    background-position: 0 0;
+    background-size: contain;
+    background-repeat: no-repeat; */
+    padding-left: 2em;
+    background: url(/imagenes/check.png) 0 0 / contain no-repeat; /*Esto de aqui es el shorthand, es como el metodo rapido y abreviado para hacerlo, en lugar de estar escribiendo linea por linea del codigo. Aunque es algo que todavia no se ve en el curso por lo tanto no se que orden lleva ni como estructurarlo. Esta forma solo se puede hacer si todo hacer referencia al mismo elemento, como en este caso el background. En lugar de poner un background por cada uno, solo ponemos uno en general y dentro de este ponemos todos los valores que va a llevar, no podemos mezclar elementos, por ej, background con font o con displar etc, tiene que ser todo del mismo tipo*/
+}
+
+.list_2{
+    list-style-position: inside; /*El inside sirve para que las viñetas queden dentro del contenedor que almacena la lista*/
+}
+.list__item_2{
+    background-color: red;
+}
+.list_3{
+    list-style-position: outside; /*El outside sirve para que las viñetas queden por fuera del contenedor que almacena la lista*/
+}
+.list__item_3{
+    background-color: red;
+}
