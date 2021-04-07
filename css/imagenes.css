@@ -1,0 +1,80 @@
+/*
+No existen propiedades para imagenes en CSS
+
+1.-  Imagenes responsive: En el archivo base se recomienda poner esta regla
+        img{
+            max-width: 100%;
+        } 
+        
+2.- Las imagenes por defecto son elementos inline, esto causa un espacio por debajo a su line-height, se puede solucionar de 2 formas
+        Dando un line-height:0 al contenedor o un display:block a la imagen
+            
+3.- Centrado horizontal
+        imagen con display:block y margenes laterales automaticos
+        text-align: center, si la imagen no es un bloque
+        
+4.- Centrado vertical
+        Flexbox (La mejor opcion)
+        vertical-align: middle. A la imageny al texto
+*/
+
+.img{
+    max-width: 100%;
+}
+.img_container{
+    background-color: red; /*Se puede apreciar por debajo de la imagen el pequeño hilo que se desborda del background rojo. Esto sucede debido al line-height de la imagen. Se puede solucionar de dos formas como se menciona en el punto 2 de la info que se encuentra en el inicio de este archivo*/
+    /* line-height: 0; */
+    width: 300px; /*Con esto le damos un ancho al contenedor de la imagen, si la imagen tiene un max-width esta respetara el ancho del contendor*/
+}
+.img_2{
+    max-width: 100%; /*Con este parametro le estamos diciendo que siempre tenga el 100% de ancho y que no desborde su contenido, y como a esta imagen la rige un div o contenedor que solo tiene 300 px de ancho, la imagen por lo tanto nunca va a superar esta medida*/
+    display: block; /*Podemos arreglar el desborde del background con el displar block directamente en la imagen o con el line-height en el contenedor (div), como se muestra aqui y en la linea anterior*/
+}
+.img_container_3{
+    background-color: cyan;
+    text-align: center; /*Este metodo sirve para cuando la imagen no es un bloque (Lo cual sera la mayoria de la veces, ya que para trabajar de mejor manera, las imagenes hay que tenerlas como bloques), ya que se comporta como texto. De no ser el caso, esto se logra modificando los estilos de la imagen directamente*/
+}
+.img_3{
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /*Estas dos ultimas lineas de codigo sirven para centrar la imagen cuando esta es un bloque o tiene un display block*/
+}
+/*Con estos lineas de codigo conseguimos diferentes diseños con respecto al estilo que le queramos dar. Cabe aclarar que esto no se trato en el video, yo lo descubri trasteando un poco, por lo tanto no se bien como va el rollo
+
+Esta forma es poco usada en la actualidad ya que ahora se puede hacer de una forma sencilla con flexbox, donde ademas de no requerir tanto embrollo, ademas tiene la ventaja de que la imagen se ajusta por si sola*/ 
+.img_container_4 img, 
+.img_container_4 p{
+    vertical-align: middle;
+}
+.img_container_4{
+    display: table;
+}
+.img_container_4 span, 
+.img_container_4 p{
+    display: table-cell;
+}
+.img_container_5 img, 
+.img_container_5 span{
+    vertical-align: middle;
+}
+.img_container_5{
+    display: table;
+}
+.img_container_5 span, 
+.img_container_5 {
+    display: table-cell;
+}
+.img_5{
+    width: 200px;
+    height: 200px;
+}
+/* COMO NOS PODEMOS DAR CUENTA LOGRAMOS EL RESULTADO DE ANTES DE UNA FORMA MUCHO MAS SENCILLA, RAPIDA, COMODA Y SIN TENER QUE ASIMILAR O ENTENDER TAN DIFICILMENTE QUE ES LO QUE ESTA PASANDO COMO EN LAS FORMAS ANTERIORES. DE IGUAL MANERA DEBER DE HABER UNA FORMA PARA EL ALINEAMIENTO HORIZONTAL Y PUEDAN QUEDAR COMO LAS IMAGENES DEL CHECK AUNQUE POR EL MOMENTO NO CONOZCO EL METODO Y TAMPOCO CONOZCO COMO TRABAJA FLEXBOX, ESTO FUE SOLO UNA PEQUEÑA MUESTRA QUE HIZO EL PROFE PARA QUE VIERAMOS LA DIFERENCIA */
+.img_container_6{
+    display: flex;
+    align-items: center;
+}
+.img_6{
+    max-width: 100%;
+    min-width: 30%;
+}
