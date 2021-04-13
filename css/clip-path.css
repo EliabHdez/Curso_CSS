@@ -1,7 +1,107 @@
+/*
+    Clip-path: Es una mascara que oculta partes de una caja
+        - circle(): Dibuja un circulo, puede tener una medida fija, circle(100px) o podemos especificar un centro con at, circle (100px at medidaX | medidaY | palabrasClaveX | palabrasClaveY)
+        
+        - ellipse(): Dibuja una elipse, funciona igual quer el circulo, pero en este caso tenemos que especificar 2 centros, el horizontal y el vertical
+        
+        - inset(): Dibuja un borde transparente por dentro de la caja
+            inset(all | Y X | top x bottom | top left bottom right), existe la opcion de redondear las esquinas, para ello despues de los valores de inset pondremos round "inset(---- round all)"
+                top-left bottom-right top-right bottom-left
+                top-left top-right & bottom-left bottom-right
+                top-left top-right bottom-right bottom-left
+                
+        - polygon(): Especifica una seria de puntos (minimo 3) para definir la zona visible siendo el punto 0 0 la esquina superior izquierda. Los puntos se especifican por parejas de ejeX-ejeY (el eje "x" es el primero, el eje "y" es el segundo, ej 50% 0) separados por comas. Los puntos deben llevar un orden, para la creacion de las figuras, a menos que la forma de la figura que buscamos o queremos hacer necesite que se crucen los puntos para poderla formar, por ej como si quisierasmos hacer un reloj de arena, que son dos triangulos encontrados ()
+        
+    Generador de clip-path: https://bennettfeely.com/clippy/ 
+        (Esta pagina nos permite crear diferentes formas y figuras por medio de puntos que van en el clip-path: polygon, nos da los puntos necesarios en codigo para la forma, adicional tambien podemos crear nuestras formas o figuras de forma libre y manual)
+*/
+
 body{
     background-color: black;
 }
-h1{
-    color: white;
-    text-decoration: underline;
+.box{
+    background-color: yellow;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box_item{
+    background-color: crimson;
+    width: 250px;
+    height: 250px;
+    clip-path: circle(50px);
+}
+.box1{
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box_item1{
+    background-color: blue;
+    width: 250px;
+    height: 250px;
+    clip-path: ellipse(100px 50px at left);
+}
+.box2{
+    background-color: lime;
+    width: 250px;
+    height:250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box_item2{
+    background-color: orangered;
+    width: 250px;
+    height: 250px;
+    clip-path: inset(20px 50px 100px 75px round 20px 5px); 
+        /*Si solo tiene un valor declarado, lo aplicara a todos los lados. Si tiene 2 valores declarados, el primero correspondera al eje "y" y el segundo al eje x. Si tiene 3 valores el primero corresponde a top, el segundo al eje "x" y el tercero a bottom. Si tiene 4 valores el primero corresponde a top, el segundo a right, el tercero a bottom y el cuarto a left. Con 4 valores declarados el orden que llevara sera en el sentido de las manecillas del reloj. 1-arriba, 2-derecha, 3-abajo, 4-izquierda*/
+
+        /* Round nos sirve para redondear las esquina y a este se le pueden declarar uno o mas valores al igual que al inset . 1 valor redondea todas las esquina. 2 valores: el primero redondea la esq sup izq y esq inf der y el segundo esq sup der y esq inf izq. 3 valores: el primero esq sup izq, segundo esq sup der y esq inf izq y tercero esq inf der. 4 valores trabaja de la misma manera que el inset, en el sentido de las manecillas del reloj, empezando por la esq sup izq*/
+}
+.box3{
+    background-color: rebeccapurple;
+    width:  250px;
+    height:  250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box_item3{
+    background-color: darksalmon;
+    width:  250px;
+    height:  250px;
+    clip-path: polygon(25% 25%, 75% 25%, 25% 75%, 75% 75%);
+}
+.box4{
+    background-color: aqua;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box_item4{
+    background-color: violet;
+    width: 250px;
+    height: 250px;
+    clip-path: circle(50px at 75% 75%);
+}
+.box5{
+    background-color: red;
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.box_item5{
+    background-color: black;
+    width: 250px;
+    height: 250px;
+    clip-path: polygon(50% 2%, 98% 38%, 82% 95%, 18% 95%, 2% 38%);
+    /* clip-path: circle(20%); */
+    transition: clip-path .9s; /*La transition al parecer solo funciona si ambos clip-path son iguales, no hay una transition si un clip-path es circle y el otro es inset o inset y polygon, ambos tienen que ser iguales, ya sea circle-circle, inset-inset, polygon-polygon etc...Ademas de que necesitan ambos clip-paths tener el mismo numero de puntos o vertices, de lo contario la transition tampoco funciona*/
+}
+.box5:hover > .box_item5{
+    clip-path: polygon(50% 15%, 70% 50%, 60% 70%, 40% 70%, 30% 50%);
 }
