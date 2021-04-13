@@ -1,0 +1,45 @@
+.box--color{
+    width: 150px;
+    height: 150px;
+    border: solid 3px black;
+    font-size: 20px;
+    color: red;
+    display: inline-flex;
+    text-align: center;
+}
+.box--rgb{
+    width: 150px;
+    height: 150px;
+    border: solid 3px black;
+    font-size: 20px;
+    color: red;
+    display: inline-flex;
+    text-align: center;
+}
+.box--rgba{
+    width: 150px;
+    height: 150px;
+    border: solid 3px black;
+    font-size: 20px;
+    color: red;
+    display: inline-flex;
+    text-align: center;
+}
+.box--hsl{
+    width: 150px;
+    height: 150px;
+    border: solid 3px black;
+    font-size: 20px;
+    color: red;
+    display: inline-flex;
+    text-align: center;
+}
+.box--hsla{
+    width: 150px;
+    height: 150px;
+    border: solid 3px black;
+    font-size: 20px;
+    color: red;
+    display: inline-flex;
+    text-align: center;
+}
