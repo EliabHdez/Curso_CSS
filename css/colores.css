@@ -1,45 +1,56 @@
-.box--color{
+/* 
+    Colores
+        Hay varias formas de dar color a los elementos
+            -Palabras clave https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+            
+            - Hexadecimal: LA notacion hexadecimal tiene 16 valores, 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - A - B - C - D - E - F. Se escriben con un # al inicio y se pueden usar 3 o 6 valores. Si se usan 6 valores deben ir en parejas (#ffffff), pero cuando las parejas tienen el mismo valor se suelen obviar y se ponen solo 3 valores (#fff). El codigo hexadecimal se representa con los canales rgb de esta forma: #rgb o #rrggbb. Utilizar el modo hexadecimal cuando se buscan colores especiales se queda corto si no utilizamos un preprocesador, ya que no podemos controlar la luminosidad, la saturacion, etc... Cuando los 3-6 valores son iguales es un color neutro, (#000, seria negro y #fff seria blanco), y todos los valores intermedios serian grises con mayor o menor luminosidad (#666, #aaa)
+            
+            -RGB: Es una funcion de color que recibe 3 valores seprados por comas, siendo 0 el minimo y 255 el maximo (rgb(0,0,0) seria negro y rgb(255,255,255) seria blanco)
+            
+            - RGBA: Es una variacion de RGB con un cuarto valor que seria el canal alpha, con este valor controlamos la opacidad. Sus valores van de 0 a 1, siendo 0 transparente y 1 opaco
+            
+            - HSL (hue, saturation, lightness): Es una funcion de color que nos permite controlar el tono, la saturacion y la luminosidad. Es el modo de color que se recomienda para tener un control total sobre los colores
+                hue es el angulo en la rueda cromatica. Los valores van de 0 a 360 grados
+                saturacion es la intensidad del color. Los valores van de 0 (gris) a 100% (blanco)
+                lightness es la intensidad de la luz. Los valores van de 0 (negro) a 100% (blanco)
+                
+            - HSLA: Exactamente igual que RGBA*/
+body{
+    background-color: black;
+    margin: 50px;
+}
+.box{
     width: 150px;
     height: 150px;
-    border: solid 3px black;
-    font-size: 20px;
-    color: red;
-    display: inline-flex;
+    border: 2px solid black;
+    margin: 20px;
     text-align: center;
+    line-height: 150px;
+    font-size: 30px;
+    /* color: white; */
+    display: inline-block;
+}            
+.box--color{
+    color: crimson;
+    background-color: aquamarine;
 }
 .box--rgb{
-    width: 150px;
-    height: 150px;
-    border: solid 3px black;
-    font-size: 20px;
-    color: red;
-    display: inline-flex;
-    text-align: center;
+    color: rgb(0, 0, 255);
+    background-color: rgb(255, 125, 4);
 }
 .box--rgba{
-    width: 150px;
-    height: 150px;
-    border: solid 3px black;
-    font-size: 20px;
-    color: red;
-    display: inline-flex;
-    text-align: center;
+    color: rgba(250, 255, 10, .3);
+    background-color: rgba(255, 0, 255, .3);
+}
+.box--hexa{
+    color: #909090;
+    background-color: #fff000;
 }
 .box--hsl{
-    width: 150px;
-    height: 150px;
-    border: solid 3px black;
-    font-size: 20px;
-    color: red;
-    display: inline-flex;
-    text-align: center;
+    color: hsl(220, 100%, 50%);
+    background: hsl(120, 80%, 50%); /*La saturacion es el valor medio y como en todos lados es una escala de grises, entre mas alto e valor mas tono de ese color tiene, entre mas bajo mas tono de gris va adquiriendo*/
 }
 .box--hsla{
-    width: 150px;
-    height: 150px;
-    border: solid 3px black;
-    font-size: 20px;
-    color: red;
-    display: inline-flex;
-    text-align: center;
+    color: hsla(0, 0%, 0%, .2);
+    background-color: hsla(0, 0%, 100%, .5); /*El ultimo y/o cuarto valor corresponde al canal alpha, el cual controla la transparencia y la opacidad, 0-trans, 1-opaco*/
 }
