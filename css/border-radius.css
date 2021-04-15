@@ -36,9 +36,69 @@
             border-bottom-left-radius: 80px 300px
 */
 .box{
-    width: 400px;
-    height: 400px;
+    margin: 20px;
+    width: 250px;
+    height: 250px;
     background-color: lightcoral;
     position: relative;
-    border-radius: 30px;
+    border-radius: 50px;
+}
+.box0{
+    margin: 20px;
+    width: 250px;
+    height: 150px;
+    background-color: coral;
+    position: relative;
+    border-radius: 50%; /*Si tiene el mismo tamaño en el width que en el height con el border radius al 50% se hace un circulo, si no se hace una ellipse como en este caso. Lo que hacemos es decirle que le de un border-radius del 50% del tamaño de la caja. Eso quiere decir border radius de 125px y 75px, cada border radius correspondiente a lado de la caja que corresponden estas medidas (125px en top/bottom left-right | 75px en left/right top-bottom)*/
+}
+.box1{
+    margin: 20px;
+    width: 250px;
+    height: 250px;
+    background-color: aqua;
+    position: relative;
+    border-radius: 20px 50px 80px;
+}
+.box2{
+    margin: 20px;
+    width: 250px;
+    height: 250px;
+    background-color: yellow;
+    position: relative;
+    border-radius: 50px 100px 150px 200px;
+}
+.box3{
+    margin: 20px;
+    width: 250px;
+    height: 250px;
+    background-color: blueviolet;
+    position: relative;
+    border-radius: 20px 50px / 50px 100px; /*Si separamos los valores con un slah (/) lo que hacemos es un border-radius en forma de ellipse. Los valores del border radius definen el tamaño de la ellipse para asi formar el border-radius. El primer valor corresponde al radio en el ejeX y el segundo valor corresponde al radio en el ejeY de la ellipse, el segundo valor es el que estara definiendo el border-radius de la esquina. Los valores tienen una pareja por decirlo de alguna manera y esta pareja esta en el otro lado del slash. Ej 10px 50px / 60px 100px, el primer border-radius en forma de ellipse es de 10px-60px y el segundo es de 50px-100px. Esto lo podemos observar en el ultimo div (caja) del archivo html, donde observaremos el tipo de radio que genera este forma de poner los valores con el slash ademas de que podremos observar una ellipse creada para mostrar el angulo que se hace en referencia a esta para simplificar lo aqui descrito. Podemos poner desde un valor que se aplicara a todas las esquina o hasta 4 que corresponderan a cada una de las esquinas. Es un poco confuso y muy probablemente no lo este describiendo bien o facil para entenderlo, si queremos repasar el tema lo encontramos en el video 31 del curso de css de Dorian Designs
+    
+    -- En otras palabras el border-radius es de la forma de una ellipse --*/
+}
+.box3::before{
+    content: '';
+    position: absolute;
+    display: block;
+    border: 3px solid black;
+    bottom: 0;
+    left: 5px;
+    transform: rotate(-20deg);
+    width: 50px;
+    height: 100px;
+    border-bottom-left-radius: 50px 100px;
+    border-bottom-right-radius: 50px 100px;
+    border-top-left-radius: 50px 100px;
+    border-top-right-radius: 50px 100px;
+}
+.box4{
+    margin: 20px;
+    background-color: black;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%; /*Aqui podemos ver lo antes mencionado, de que se puede hacer un circulo por medio del border radius, esto es posible solo si el width y el height tienen el mismo tamaño.
+    
+    Podremos hacerlo tambien poniendo 40px en el border radius, ya que le estariamos dando la mitan del tamaño global al border-radius y esto genera por obviedad un circulo, pero como las medidas pueden ser relativas, variar y sobre todo estar en otra unidad de medida como em o rem, tendriamos que estar sacando la medida en pixeles y calculando la mitad para crear el circulo, sin embargo con el % al aplicar siempre el 50% en el border-radius, no importa que medida tenga o que unidad de medida se este ocupando siempre tendremos un circulo, ya que le estaremos diciendo que el border-radius sea tal cual del 50% de la medida que tenga, sea cual sea*/
 }
