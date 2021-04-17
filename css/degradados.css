@@ -6,15 +6,15 @@
     
     Degradados lineales:
         linear-gradient([direcction], color-1, color-2...)
-        background-image: linear, gradient(red, blue);
-            La direccion es opcional, se puede establecer con un angulo (20deg, 190deg...) o estableciendo la direccion del degradado con "to top | right | bottom | left | top left | top right | bottom left | bottom right"
+        background-image: linear-gradient(red, blue);
+            La direccion es opcional, se puede establecer con un angulo (20deg, 190deg...) (cuando se hace por medio de grados la direccion inicial de invierte, esto quiere decir que el 0 0 esta en la parte central de abajo de la caja) o estableciendo la direccion del degradado con "to top | right | bottom | left | top left | top right | bottom left | bottom right"
         background-image: linear-gradient(to right, red, blue);
         
         Si no establecemos paradas de color, el navegador dividira el espacio disponible entre los colores que tengan que pintar
             2 colores 0% 100%
             3 colores 0% 50% 100%
             
-            Para establecer las paradas se puede usar cualquier medida: px, em, %,etc... Si la paradas/inicios empiezan en el mismo sitio se genera un corte solido
+            Para establecer las paradas se puede usar cualquier medida: px, em, %, etc... Si la parada/inicio tienen el mismo sitio o valor (ej 50%[primer color], 50% [segundo color]) se genera un corte solido
                 background-image: linear-gradient(red 50%, blue 50%);
                 
             linear-gradient(direcction, color-1 stop, color-2 start [stop]...)
@@ -36,12 +36,108 @@
                     
                     Si establecemos un valor, el segundo por defecto sera center
                         background-image: radial-gradient(circle 100px at top, red 50%, blue 50%);
+
+    El valor en los colores determina las paradas/inicios. Esto quiere decir que en el primer color el valor en porcentaje, px, em, etc le indica que hasta esa medida tiene que tener ese color (que seria el color de forma solida), y en el segundo valor le indica que apartir de esa medida hasta el final tiene que tener el color indicado, al igual en forma solida
+        (recordar que lo demas es la transicion de los colores intermedios que hay entre el primer y  segundo color, aunque esto no se perciba muy bien del todo y de una forma lo suficienteme clara, pero que prestando atencion y fijandonos a detalle podemos darnos cuenta de esto)
 */
 .box{
-    margin: 10em auto;
-    width: 1000px;
-    height: 1000px;
-    border: 20px solid black;
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid black;
     /* margin-left: auto;
     margin-right: auto; */
+    background-image: linear-gradient(red, yellow);
+}
+.box1{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid black;
+    background-image: linear-gradient(0, red, yellow);/*Aqui se puede ver los descrito al inicio en el apartado de los grados, que cuando estos se usan o se declaran aun en cero la direccion se invierte. Esta caja tiene casi lo mismo que la primera, a excepcion de que a esta se le declaro un valor en los grados y aunque es 0 ya lo toma como valor y esto genera el cambio en la direccion inicial*/
+}
+.box2{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid black;
+    background-image: linear-gradient(45deg, red, yellow);
+        /*La direcicon se puede establecer con grados o con las palabras claves descritas en el inicio de este archivo (que quieren decir para/hacia...)*/
+    /* background-image: linear-gradient(to right, red, yellow);  */
+        /*Direccion estipulada con palabra clave, la cual quiere decir hacia/para la derecha*/
+}
+.box3{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid red;
+    background-image: linear-gradient(lime 40%, black 40% 70%, blue);/*Aqui podemos observar que el dar los valores de esta forma obtenemos 4 efectos. El primero es que el verde tiene un color solido de el 0% hasta el 40%. Segundo es que tiene un corte solido entre ambos colores (verde y negro) y no hay ningun degradado entre estos. Tercero el color negro va desde el 40% al 70% de forma solida. Cuarto apartir del 70% empieza a haber un degradado del negro hacia el azul*/
+}
+.box4{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid red;
+    background-image: linear-gradient(lime 40%, black 40%, blue 70%);
+        /*Aqui cambiamos un poco los valores con respecto a la caja anterior, el 70% se lo quitamos al negro y se lo pusimos al azul, notaremos que el negro va de forma degradada hasta el 70% y que apartir del 70% el color azul  va de forma solida hasta el 100%. Pareciera que no es asi, pero si se observa con detenimiento, se podra visualizar que el tono del azul no es el mismo del 70% para arriba que del 70% hacia abajo, se podra observar una ligera variacion en el tono*/
+}
+.box5{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid red;
+    background-image: radial-gradient(circle 100px, lime 30%, black 50%);
+        /* El valor del porcentaje, pixeles ect (50%) en los colores determina en el primer valor lo solido que sera el color del 0% hasta el porcentaje indicado ej lime 50% el circulo va a ser de color lime solido del centro hasta el 30% de su tamaño y en el segundo valor determinara a partir de que porcentaje sera solido el color a partir del centro del circulo ej black 50% quiere decir que apartir del 50% del tamaño del circulo hasta el final de la caja el color negro sera solido, si en este valor le ponemos 100% este sera solido a partir de donde termine el circulo dependiendo del tamaño que le hayamos asignado en este caso 100px, a partir de estos 100px el color negro sera solido hasta el final de la caja. Aunque en estos momentos no pareciera que hay un circulo de 100px si lo hay, solo que le estamos diciendo al color negro que este sea solido a partir del 50% del tamaño del circulo, por lo tanto el otro 50% esta siendo tapado por el color negro, pero no quiere decir que el circulo no sea de 100px, si lo es, solo que el porcentaje restante esta siendo cubierto por el color negro*/
+}
+.box6{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid red;
+    background-image: radial-gradient(circle 100px, black 30%, lime 80%, blue 120%);
+}
+.box7{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    /* border: 10px solid red; */
+    background-image: radial-gradient(ellipse 150px 50px, lime 40%, black);
+}
+.box8{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    /* border: 10px solid black; */
+    border-radius: 10px;
+    background-image: radial-gradient(ellipse 250px 100px at bottom, transparent 70%, lime 20%, black);
+}
+.box8-1{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    /* border: 10px solid black; */
+    border-radius: 10px;
+    background-image: radial-gradient(ellipse 300px 100px at bottom, transparent 50%, black 60%);
+        /* Aqui podemos observar que aunque esta caja es casi igual en su valores que la antrerior (8), el simple hecho de haber cambiado el lime por el transparent y no dejar ambos valores como en la anterior cambio por completo el aspecto y el efecto de los colores en la caja y aunque parezca obvio resulta interesante y util saberlo ya que nos podemos dar cuenta que tenemos mas de una opcion en que tantos valores agregamos y que tenemos que estar muy al pendiente de esto ya que podemos confundirnos, hay que tener en cuenta que podemos agregar muchos valores y que aunque parezca que esa es la fomra indicada para llegar al resultado que queremos puede que no lo sea, ya que hay otras formas y talvez no las estemos contemplando o simplemente no nos hemos dado cuenta de que lo estamos haciendo de la forma equivocada. En otras palabras poner un valor de mas, de menos o en el lugar que no le corresponde nos estaria alterando el resultado significativamente y no sabriamos porque, asi que hay que tener cuidado y prestar atencion al resultado que queremos llegar y la forma en que lo estamos haciendo para llegar a dicho resultado*/
+}
+.box9{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid black;
+    background-image: radial-gradient(red, lime);
+}
+.box10{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid blue;
+    background-image: radial-gradient(circle 100px at top, red 50%, yellow);
+}
+.box11{
+    margin: 5em auto;
+    width: 300px;
+    height: 300px;
+    border: 10px solid blue;
+    background-image: radial-gradient(ellipse 200px 100px  at bottom left, red 100%, yellow);
 }
