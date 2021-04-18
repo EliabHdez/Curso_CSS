@@ -3,4 +3,75 @@
     height: 400px;
     border: 10px solid black;
     margin: 50px auto;
+    background-image: linear-gradient(45deg, red 50%, blue 50%);
+}
+.box-box{
+    width: 400px;
+    height: 400px;
+    border: 10px solid black;
+    margin: 50px auto;
+    background-image: linear-gradient(45deg, red 50%, blue 50%);
+    background-size: 50px 50px;
+}
+.box1{
+    width: 400px;
+    height: 400px;
+    border: 10px solid black;
+    margin: 50px auto;
+    background-image: linear-gradient(45deg, 
+    blue 25%, 
+    red 25%, 50%, 
+    blue 50%, 75%, 
+    red 75%);
+}
+.box1-1{
+    width: 400px;
+    height: 400px;
+    border: 10px solid black;
+    margin: 50px auto;
+    background-image: linear-gradient(45deg, 
+    blue 25%, 
+    red 25%, 50%, 
+    blue 50%, 75%, 
+    red 75%);
+    background-size: 50px 50px;
+        /*El background size nos permite darle el tamaño al patron que conforma el degradado, sin embargo si utilizamos linear-gradient con grados y aparte el background size tendriamos que estar calculando las paradas e inicios de los colores para conseguir el patro adecuado. Para evitar todo esto existe una forma mas facil que es utilizando el repeating-linear-gradient*/
+        /* Este caso es casi igual al anterior, a excepcion de que para conseguir el patron indicado tuvimos que generar paradas/inicios para que las lineas en diagonal fueran continuas, ya que de lo contrario como en el caso anterior estariamos generandos un patron de cuadrados con degradados dentro de estos, debido a que el patron en general es un cuadrado con degradado en diagonal, esta diferencia la podemos ver si a ambos casos le quitamos el background size */
+}
+/* Es un poco raro y confuso ya que podria en el segundo caso estar generando el mismo efecto que el primero solo que con el patron indicado, pero no es asi, por lo tanto para lograr el efecto del segundo caso tenemos que generar paradas e inicios */
+
+/* Este tipo de casos variara de acuerdo a los grados designados en el linear-gradient, ya que por ej con 45deg no sera que igual que con 60deg al igual que 60deg no sera igual que con 75deg, para cada uno debemos calcular las paradas e inicios de los colores en el degradado*/
+.box2{
+    width: 400px;
+    height: 400px;
+    border: 10px solid red;
+    margin: 50px auto;
+    background-image: linear-gradient(30deg, black 50%, lime 50%);
+}
+.box2-2{
+    width: 400px;
+    height: 400px;
+    border: 10px solid red;
+    margin: 50px auto;
+    background-image: repeating-linear-gradient(30deg,
+        black 0 10px,
+        lime 10px 20px);
+            /* Con el repeating-linear/radial-gradient podemos lograr el patron adecuado utilizando grados, sin la necesidad de estar calculando las paradas e inicios de los colores para conseguirlo, ya que con este comando le indicamos que no importa el angulo nos va a repetir el patron que le estemos indicando. A diferencia del otro, aqui en los colores no le ponemos porcentaje, si no el tamaño del que queramos que sea el patron, vaya estamos ocupando de cierta forma el background size pero ya dentro de los parametros de los colores, esto nos permite hacerlo de forma mucho mas sencilla, directa y sin tanta parada e inicio, ya que solo debemos establecer el inicio y final de cada color en pixeles y no generar un patron completo por medio de porcentajes como en el caso anterior*/
+}
+.box3{
+    width: 400px;
+    height: 400px;
+    border: 10px solid red;
+    margin: 50px auto;
+    background-image: radial-gradient(circle 200px, lime 50%, black 50%);
+}
+.box3-3{
+    width: 400px;
+    height: 400px;
+    border: 10px solid red;
+    margin: 50px auto;
+    background-image: repeating-radial-gradient(circle 200px, 
+        lime 0 20px, 
+        black 20px 40px);
+            /* El repeating funciona de la misma manera con el radial, solo que en este caso no declaramos grados, si no circulos o elipses con su(s) respectivo(s) radio(s)*/
 }
