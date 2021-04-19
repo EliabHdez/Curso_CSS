@@ -1,4 +1,74 @@
+/* 
+    Overflow: Es una propiedad que controla como se va a comportar la caja con el contenido que se desborde de ella
+    Es un shorthand que engloba overflow-x y overflow-y
+    
+    Tiene 3 valores posibles:
+        hidden: Oculta todo el contenido que se desborda
+        auto: Muestra la barra de scroll solo se hace falta
+        scroll: Muestra ambas barras de scroll independientemente de si se necesitan
+*/
 .article{
     padding: 0 10px;
     border: 3px solid purple;
+    height: 120px;
+    /* overflow: hidden; */
+        /* Con el overflow hidden lo que hacemos es ocultar el texto que se desborda por fuera del contenedor, pero no tenemos alguna opcion de scroll como con el auto o scroll para ver el resto del texto. Lo comente para que se viera el desborde, si querermos ver el efecto solo descomentamos y estaremos viendo lo antes mencionado*/
 }
+.article2{
+    padding: 0 10px;
+    border: 3px solid purple;
+    height: 120px;
+    overflow: auto;
+}
+.article3{
+    padding: 0 10px;
+    border: 3px solid purple;
+    height: 120px;
+    overflow: scroll;
+}
+/* 
+    Float: https://developer.mozilla.org/es/docs/Web/CSS/float
+               https://developer.mozilla.org/es/docs/Web/CSS/clear
+               
+        La propiedad float especifica si un elemento debe salir del flujo normal y aparecer a la izquierda o a la derecha de su contenedor, los elementos de texto y los elementos en linea apareceran a su alrededor
+        
+        Tiene 3 valores posibles:
+            left: Flota el elemento a la izquierda del contenedor
+            right: Flota el elemento a la derecha del contenedor
+            none: Elimina el float
+        
+        "NO EXISTE FLOAT CENTER"*/
+.article-float{
+    padding: 10px;
+    border: 3px solid darkcyan;
+}
+.article-float img{
+    max-width: 50%;
+    float: left;
+    margin-right: 10px;
+}
+.article-float2{
+    padding: 5px;
+        /* Si aqui colocamos un border podemos ver que con el float en la imagen tenemos un problmea y esto es que como la imagen esta flotando el border no la cubre, solo cubre el texto, lo cual no es correcto tenerlo de esta manera. Para corregir esto hay varias formas, una forma simple de hacerlo es ocupando el overflow-x: hidden como lo veremos en el siguiente caso*/
+    border: 3px solid red;
+}
+.article-float2 img{
+    max-width: 30%;
+    float: right;
+    margin-left: 10px;    
+}
+.article-float3{
+    padding: 5px;
+    border: 3px solid red;
+    overflow-x: hidden;
+        /* Aqui podemos observar que hemos corregido el problema anterior del borde con el overflow-x: hidden y que de esta manera con esta opcion hacemos que el borde cubra por completo tanto el texto como la imagen */
+            /* Este problema del border solo sucede si el texto es mas pequeño o abarca menos espacio que la imagen, si el texto es mas grande o el espacio que ocupa es mayor al que ocupa la imagen no tendremos este problema y por lo tanto no tendremos que recurrir al overflow-x, esto lo podemos ver en el caso anterior donde el texto es bastante y al tener un border no es necesario el uso de overflow-x*/
+}
+.article-float3 img{
+    max-width: 30%;
+    float: right;
+    margin-left: 10px;
+}
+/* 
+    FLOAT ES LA UNICA MANERA DE LOGRAR ESTE EFECTO CON EL TEXTO Y LAS IMAGENES, QUE EL TEXTO ABRACE O SE POSICIONE ALREDEDOR DE LA IMAGEN, ESTE SOLO SE OCUPARA PARA ESTE EFECTO, YA QUE FUERA DE ESTO PRACTICAMENTE FLOAT ESTA EN DESUSO Y YA NO SE OCUPA
+*/
