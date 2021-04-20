@@ -20,11 +20,90 @@
 .flex-container{
     padding: 10px;
     background-color: lightcoral;
+    display: inline-flex; /*Elemento flexbox en linea*/
 }
 .flex-item{
     background-color: purple;
     width: 30px;
     height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    margin: 10px;
+}
+.flex-container1{
+    padding: 10px;
+    background-color: lightcoral;
+    display: flex; /*Elemento flexbox en bloque*/
+    flex-direction: row-reverse; /*Cambio de direccion del eje-x. main axis de derecha a izquierda*/
+}
+.flex-item1{
+    background-color: purple;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    margin: 10px;
+}
+.flex-container2{
+    padding: 10px;
+    background-color: lightcoral;
+    display: flex; /*Elemento flexbox en bloque*/
+    flex-direction: column; /*Con el valor column lo que hacemos es cambiar el main axis (eje principal) para que ahora el main axis sea vertical y el cross axis (eje secundario sea horizontal). Con column-reverse revertimos el orden (como con el row-reverse), el main axis seria vertical tambien pero de abajo hacia arriba*/
+}
+.flex-item2{
+    background-color: purple;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    margin: 10px;
+}
+
+    /* Flexbox Wrap */
+
+.flex-container3{
+    padding: 10px;
+    background-color: lime;
+    display: flex;
+        /* Aqui podemos observar que no tiene un flex-wrap, al no tener este valor flexbox hace que todos los items esten dentro de su contenedor pero no con el tamaño en ancho (width) que se le dio a cada uno de los items (100px), esto porque no se le ha dicho a flexbox que mantenga los items del tamaño asignado aunque esto provoque que se desborden y tenga que hacer el contenedor mas grande, esto lo hacemos con flex-wrap. Esto solo pasa al menos en este caso en concreto con el width ya que si cambiamos el valor de lo alto (height) no nos encontramos con el mismo problema, ya que la pagina puede desplazarse y tener cualquier tamaño en vertical y no hay problema de que no nos quepan los items en sentido vertical como es en el caso del sentido horizontal (para muestra de esto si agrandamos o minimizamos la pagina en sentido horizontal podemos observar que los items van cambiando su tamaño en este sentido). Esto del tamaño en vertical descrito con anterioridad lo podemos ver en el ultimo caso de este ejercicio*/
+}
+.flex-item3{
+    background-color: black;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    margin: 10px;
+}
+.flex-container4{
+    padding: 10px;
+    background-color: lime;
+    display: flex;
+    flex-wrap: wrap; /*En este caso ya podemos ver que los elementos son del tamaño en ancho (width) del que le hemos establecido (100px) aunque esto haya echo que se agrandara el tamaño original del contenedor, no dejan de estar dentro de el, si no que mas bien flexbox ajusta el tamaño del contenedor para que todos los elemtos sigan dentro de el, pero con el tamaño asignado en los items, y esto con el salto de linea o desborde hacia abajo*/
+}
+.flex-item4{
+    background-color: black;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    margin: 10px;
+}
+.flex-container5{
+    padding: 10px;
+    background-color: lime;
+    display: flex;
+    flex-wrap: wrap-reverse;/*Aqui vemos el mismo caso que el anterior pero con un wrap-reverse, lo que provoca que en lugar de desbordarse o dar el salto de linea para abajo lo hacen para arriba. Ademas cambiamos tambien el tamaño de la altura (height) para poder dar certeza a lo mencionado en el caso antepasado donde hablamos de que no tenemos problemas de tamaño en el sentido vertical*/
+}
+.flex-item5{
+    background-color: black;
+    width: 100px;
+    height: 100px;/*Aqui el cambio en tamaño con respecto a las alturas*/
     line-height: 30px;
     text-align: center;
     color: white;
