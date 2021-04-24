@@ -1,0 +1,303 @@
+/* 
+    Flexbox
+        Alineamiento: Estas propiedades de alineamientose aplican SIEMPRE al contenedor general (flex-container)(div contenedor)
+        
+        Existen propiedades para el main-axis y para el cross-axis
+        
+        Main-axis
+            justify-content:  flex-start(default) | center | space-between | space-around | space-evenly | flex-end (estos son los valores que se pueden aplicar al justify content)
+            
+            - flex-start: Alinea los elementosal principio del main-axis
+            - center: Centra los elementosen la mitad del main-axis
+            - flex-end: Alinea los elementos al final del main-axis
+            - space-between: Distribuye los items a la misma distancia y no deja espacio exterior ni en el primer ni el ultimo flex-item
+            - space-around: Distribuye los items a la misma distancia y deja un espacio exterior en el primero y en el utltimo flex-item
+            - space-evenly: Distribuye los items y los espacios exteriores del primer y ultimo flex-item dejando la misma distancia entre todos
+
+            TODOS RESPETAN SI HAY MARGIN DE POR MEDIO. EJ SI PONEMOS SPACE-BETWEEN PERO LOS FLEX-ITEMS TIENEN MARGIN NO ESTARAN PEGADOS AL CIEN AL CONTENEDOR GENERAL Y DARA LA IMPRESION DE QUE NO FUNCIONA COMO SE EXPLICO ANTERIORMENTE DE QUE ESTE VALOR NO DEJA ESPACIOS, SI ES ASI, NO DEJA ESPACIOS, PERO RESPETA EL MARGIN SI ES QUE LO TIENE DECLARADO
+            
+        Cross-axis
+            align-items: Una sola linea
+                flex-start | center | flex-end | strecht(default) | baseline
+            align-content: Varias lineas
+                flex-start | center | flex-end | strecht(default) | baseline
+                
+        align self: Se aplica al flex-item. Sirve para alinear un elemento en concreto en el cross axis
+*/
+.flex-container{
+    /* width: 400px; */
+    height: 150px;
+    background-color: lightcoral;
+    margin-left: auto;
+    margin-right: auto;
+    /* flex-direction: column; */
+    display: flex;
+    justify-content: space-evenly; /*El justify-content sirve para alinear el main-axis, ya sea que este este en horizontal o vertical*/
+}
+.flex-item{
+    background-color: aqua;
+    margin: 10px; /*Aqui se puede observar lo mencionado con anterioridad, que la propiedad justify-content respeta el margin, los items tienen un margin de 10 px y gracias a este margin los items no se encuentra pegados al borde superior del contenedor general, si quitamos este margin podremos observar que los items se colocan hasta arriba del contenedor*/
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.flex-container1{
+    /* width: 400px; */
+    height: 150px;
+    background-color: lightcoral;
+    margin-left: auto;
+    margin-right: auto;
+    /* flex-direction: column; */
+    display: flex;
+    justify-content: space-around;
+}
+.flex-item1{
+    background-color: aqua;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.flex-container1-1{
+    /* width: 400px; */
+    height: 150px;
+    background-color: lightcoral;
+    margin-left: auto;
+    margin-right: auto;
+    /* flex-direction: column; */
+    display: flex;
+    justify-content: space-between;
+}
+.flex-item1-1{
+    background-color: aqua;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.flex-container1-2{
+    /* width: 400px; */
+    height: 150px;
+    background-color: lightcoral;
+    margin-left: auto;
+    margin-right: auto;
+    /* flex-direction: column; */
+    display: flex;
+    justify-content: center;
+}
+.flex-item1-2{
+    background-color: aqua;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+/* No estoy haciendo ejemplos de los valores flex-start y flex-end ya que no quiero saturar la pagina con ejercicios que no un tanto logicos, ya que flex-start los posiciona al inicio y flex-end al final, lo cual no es muy dificil de recordar ni de suponer*/
+.flex-container2{
+    /* width: 400px; */
+    height: 150px;
+    background-color: lightblue;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: stretch; /*A primera instancia podriamos creer que strech y flex-start hacen los mismo y mas si se tiene un width o un height declarado (dependiendo en que direccion apunte nuestro main axis), ya que no estaremos viendo diferencia alguna, pero si quitamos este width o height podremos ver la diferencia y basicamente es que con el strech que es el por defecto los items se alargan hasta el final del contenedor y con el flex-start delimita el tamño en el cross axis. Podemos ver esto en este caso y compararlo con el siguiente para ver la diferencia*/
+}
+.flex-item2{
+    background-color: yellow;
+    margin: 10px;
+    width: 50px;
+    /* height: 50px; */
+    text-align: center;
+    line-height: 50px;
+}
+.flex-container3{
+    /* width: 400px; */
+    height: 150px;
+    background-color: lightblue;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: flex-start;/*Aqui tenemos aplicado el flex-start y podemos ver la diferencia entre el strech y el flex-start. A diferencia del valor declarado en el align-items, todo lo demas es igual, pero gracias a este valor de flex-start tenemos la diferencia en el tamaño de las cajas internas, las cuales no se van hasta el fondo del contenedor*/
+}
+.flex-item3{
+    background-color: yellow;
+    margin: 10px;
+    width: 50px;
+    /* height: 50px; */
+    text-align: center;
+    line-height: 50px;
+}
+.flex-container-1{
+    /* width: 400px; */
+    height: 500px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* align-content: flex-start; */
+        /* Podemos observar en este caso que la primer linea esta pegada al borde superior y la segunda linea esta por debajo de la mitad del contenedor y esto se debe a que el valor por defecto cuando hay mas de una linea lo que hace es dejar el mismo espacio entre la primer y segunda linea y la segunda linea y el final del contenedor. Para alinear mas de una linea y conseguir una simetria entre nuestras lineas ocupamos el "align-content"*/
+}
+.flex-item-1{
+    background-color: lime;
+    margin: 10px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.flex-container-1_1{
+    /* width: 400px; */
+    height: 500px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center; /*El align content sirve para cuando nuestros items ocupan mas de una linea dentro del contenedor, si ocupamos align-items con mas de una linea no obtendremos buenos resultados, para esto ocupamos si o si align-content*/
+    align-content: center;
+}
+.flex-item-1_1{
+    background-color: lime;
+    margin: 10px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.box{
+    width: 80%;
+    height: 400px;
+    padding: 10px;
+    border: 5px solid red;
+    display: flex;
+    align-items: center;
+}
+.box img{
+    max-width: 50%;
+    max-height: 80%;
+}
+.prices{
+    display: flex;
+}
+.price-item{
+    width: 25%;
+    height: 350px;
+    padding: 10px;
+    overflow-y: hidden;
+}
+.price-item:first-child{
+    background-color: crimson;
+}
+.price-item:nth-child(2){
+    background-color: cyan;
+    line-height: 50px;
+}
+.price-item:nth-child(3){
+    background-color: blue;
+    line-height: 10px;
+}
+.price-item:nth-child(4){
+    background-color: yellow;
+    line-height: 80px;
+    align-self: center;
+}
+.prices1{
+    display: flex;
+    align-items: baseline;
+        /* Con el valor baseline lo que conseguimos es hacer que el texto se riga a la altura de una linea, esto provocara que los contenedores se desplacen para asi poder ajustar el texto al mismo nivel. Todo el texto se alinea a la misma altura.*/
+}
+.price-item1{
+    width: 25%;
+    height: 350px;
+    padding: 10px;
+    overflow-y: hidden;
+}
+.price-item1:first-child{
+    background-color: crimson;
+}
+.price-item1:nth-child(2){
+    background-color: cyan;
+    line-height: 50px;
+}
+.price-item1:nth-child(3){
+    background-color: blue;
+    line-height: 10px;
+}
+.price-item1:nth-child(4){
+    background-color: yellow;
+    line-height: 80px;
+}
+.prices2{
+    display: flex;
+    border: 3px solid red;
+    height: 800px;
+}
+.price-item2{
+    width: 25%;
+    height: 350px;
+    padding: 10px;
+    overflow-y: hidden;
+}
+.price-item2:first-child{
+    background-color: crimson;
+    align-self: flex-start;
+}
+.price-item2:nth-child(2){
+    background-color: cyan;
+    line-height: 50px;
+    align-self: center;
+}
+.price-item2:nth-child(3){
+    background-color: blue;
+    line-height: 10px;
+    /* margin-top: 300px; */
+}
+.price-item2:nth-child(4){
+    background-color: yellow;
+    line-height: 80px;
+    align-self: flex-end;
+}
+/* Con el siguiente caso vamos a ver como se comportan los margin con el valor auto con flexbox, el cual tiene un comportamiento diferente a lo habitual, cambia con respecto a como trabaja el margin de forma cotidiana. En contenedores flex el margin con una direccion (margin-top/left etc) y con el valor auto absorbe el lado indicado en el margin posicionando al elemento(s) en el sentido opuesto al 100%. Si es left lo va a recorrer de izq a der hasta el final, si es top lo va a recorrer de arriba para abajo hasta el final y asi sucesivamente con las dos direcciones restantes. Cuando el margin no tiene una direccion pero de igual manera su valor es auto en automatico va a centrar el elemento(s) en el contenedor general. Lo interpreta algo asi como que a todos les esta absorbiendo el mismo espacio en toda las direcciones y por ende esto conlleva a que el elemento(s) que se va(n) a mover quede(n) en el centro*/
+.box1{
+    width: 98%;
+    height: 200px;
+    display: flex;
+    padding-bottom: 30px;
+    border: 10px solid lime;
+}
+.box-item1-1{
+    width: 50%;
+    height: 100%;
+    background-color: orangered;
+    border: 3px solid black;
+    margin: 10px;
+    display: flex;
+}
+.item-item1{
+    background-color: darkviolet;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-left: auto;
+    margin-top: auto;
+        /* Aqui podemos ver el posicionamiento del elemento cuando tenemos un margin con direcciones declaradas y que su valor es auto. Como lo mencionamos anteriormente los elementos se desplazan hasta el final del sentido contrario declarado en el margin */
+}
+.item-item2{
+    background-color: darkviolet;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin: auto;
+        /* En este otro caso vemos el resultado que da poner margin sin una direccion declarada y con un solo valor en auto. Lo cual hace que el elemento se posicione en el centro del contenedor que lo contiene
+
+             Esto es como un alineamiento absoluto tanto en horizontal como en vertical, esto sin importar el tamaño que tenga el contenedor padre, el elemento siempre se posicionara en el centro*/
+}

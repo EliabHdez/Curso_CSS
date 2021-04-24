@@ -36,7 +36,7 @@ p{
 
 *{
     background-color: black;
-    color: pink ;
+    color: red;
 }
 
 /*Selectores de atributo: Estos selectores permiten trabajar con las etiquetas que contengan atributos. Hay diferentes maneras de trabajar con estos, ya que podemos trabajar con el atributo solo, con el atributo y sus valores etc. Para trabajar de esta manera hay que utilizar corchetes*/
