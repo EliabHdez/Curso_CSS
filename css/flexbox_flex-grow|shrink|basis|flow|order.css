@@ -1,0 +1,184 @@
+/* 
+    Flexbox
+        Propiedad flex: Es un shorhand que engloba las siguientes propiedades. Todas las medidas se establecen en funcion del espacio disponible en el contenedor
+        
+            - flex-grow: Establece que hacer cuando hay espacio sobrante. Cuantas dvisiones coge el elemento. El valor es un entero desde 0 hasta "n" o auto
+            - flex-shrink: Establece que hacer cuando no hay espacio suficiente. Cuantas divisiones pierde el elemento. El valor es un entero desde 0 hasta "n"
+            - flex-basis: Establece cuantotiene que ocupar el item antes de encojer o extenderse. Flex basis prevalece ante width si el main-axis es horizontal o ante height si el main-axis es vertical. El valor es un entero desde 0 hasta "n"
+
+    La especificacion recomienda utilizar la propiedad "flex" con los tres valores declarados dentro de esta en lugar de declarar propiedades por seprarado una por una. ej: flex: 0 0 100px en lugar de flex-grow: 0; flex-shrink: 0; flex-basis: 100px;
+        Cuando ocupamos solo la propiedad "flex" los tres valores en esta tienen un orden y hacen referencia a cada una de las propiedades en ese orden
+            1er valor = flex-grow
+            2do valor = flex-shrink
+            3er valor = flex-basis
+        
+    Los valores de flex son:
+        default: 0 1 auto
+        auto: 1 1 auto
+        none: 0 0 auto
+        
+    Order: Establece que orden ocupara el elemento en el contenedor flex. El valor es el "peso" respecto a los valores que tengan los otros elementos. Por defecto es 0
+    
+    Extra: Existe un shorthand para flex-direction y flex-wrap. flex-flow: flex-direction flex-wrap. flex-flow: column-wrap
+*/
+.flex-container{
+    background-color: lightcoral;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    margin: auto;
+}
+.flex-item{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background-color: purple;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.flex-item:nth-child(2){
+    background-color: green;
+    flex-grow: 3; /*flex-grow sirve para cuando hay espacio libre dentro del contenedor, aunque ahorita se vea que abarca todo el espacio si lo quitamos veremos que los items solo abarcan parte de el y no por completo. La propiedad flex-grow respeta el width de los items que no llevan esta propiedad*/
+}
+.flex-item:nth-child(3){
+    background-color: blue;
+    flex-grow: 1;
+}
+.flex-item:nth-child(4){
+    background-color: crimson;
+}
+.flex-container1{
+    background-color: lightcoral;
+    width: 400px;
+    height: 200px;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+}
+.flex-item1{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 250px;
+    background-color: purple;
+    text-align: center;
+    justify-content: center;
+    flex-shrink: 5;/*El flex-shrink es para cuando no hay espacio libre o disponible dentro del contenedor, ahorita esta todo ocupado, pero si le quitamos a los items el flex-shrink veremos que aun asi estan ocupando todo el contenedor de forma vertical. En este caso le cambie la direccion al main-axis para no tenerlo todo igual y ocupar otra propiedad para asi estar ocupando lo que se ha visto en los videos lo mas posible*/
+}
+.flex-item1:nth-child(2){
+    background-color: green;
+    flex-shrink: 2;
+}
+.flex-item1:nth-child(3){
+    background-color: blue;
+    flex-shrink: 3;
+}
+.flex-item1:nth-child(4){
+    background-color: crimson;
+    flex-shrink: 4;
+}
+.flex-container2{
+    background-color: orangered;
+    width: 500px;
+    height: 200px;
+    display: flex;
+    margin: auto;
+}
+.flex-item2{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    align-items: center;
+    justify-content: center;
+}
+.flex-item2:nth-child(2){
+    background-color: green;
+}
+.flex-item2:nth-child(3){
+    background-color: blue;
+    flex-basis: 200px;/*Con el flex-basis le damos una medida a un item en conreto, ya el navegador se escargara de distribuir el espacio para los demas items, si los items sobrantes no cubren todo el espacio asi se quedaran, esta propiedad respeta el width y no forza a los elementos a rellenar el espacio faltante. Sin embargo si el tamaño de los items es igual o mas grande que el tamaño del contenedor general y por lo tanto no quedan espacios libres, el flex-basis no entrara en efecto, debido a que por defecto hay un flex-shrink de por medio, para hacer que este no interfiera necesitamos declararlo con un valor en 0, con esto estaremosle diciendo al item que tenga el flex-basis que no queremos que se encoja, que tome la medida que se le esta dando sobre todo los demas y que el navegador ajuste los demas items al espacio disponible. Este ejemplo lo podremos ver en el caso de abajo*/
+}
+.flex-item2:nth-child(4){
+    background-color: crimson;
+}
+.flex-item2:nth-child(5){
+    background-color: purple;
+    flex: 0 0 120px; /*Aqui podemos ver la propiedad flex con sus tres valores dentro como lo recomienda la especificacion. Esto es lo recomendable y mas cuando se van a ocupar las tres propiedades, sin embargo si solo se va a ocupar una de estas podemos declararla directamente osea declarar la propiedad especifica que necesitemos. ej flex-grow: <valor>;*/
+
+        /* La propiedad "flex" necesita de menos un valor, el primero, que corresponde a flex-grow, este primer valor lo necesita si o si, los otros dos valores son opcionales, si no los ponemos por defecto seran 1 auto*/
+}
+.flex-container2-1{
+    background-color: orangered;
+    width: 500px;
+    height: 200px;
+    display: flex;
+    margin: auto;
+}
+.flex-item2-1{
+    display: flex;
+    width: 300px;/*Valor de cada item, el total de los pixeles entre todos los items superan al tamaño del contenedor general*/
+    height: 50px;
+    background-color: yellow;
+    align-items: center;
+    justify-content: center;
+}
+.flex-item2-1:nth-child(2){
+    background-color: green;
+}
+.flex-item2-1:nth-child(3){
+    background-color: blue;
+    flex-basis: 400px; /*flex-basis pesa mas que width o height (dependiendo de la direccion del main-axis), por lo tanto al declarar un flex-basis el width/height que se le alla dado al elemento pasa a perderse y ser sustituido por el valor del flex-basis*/
+        /*Aqui tenemos declarado el flex-basis con un valor bastante alto, casi del mismo tamaño que el del contendedor general y porque si esta de este tamaño si el width de los items sumados supera al tamaño del contenedor? Esto es porque le declaramos un flex-shrink en 0, quiere decir que le estamos quitando esta propiedad y su valor que vienen por defecto y por lo tanto le estamos diciendo al item que no se encoja, que tome el tamaño que se le esta asignando si o si. El espacio sobrante lo ocupa para los demas items y los ajusta a este espacio, como podemos observar estos son los que pierden tamaño ya que de su tamaño original no caben y por lo tanto se reducen drasticamente en tamaño para quedar por dentro del contenedor*/
+    flex-shrink: 0;
+        /*Aqui tenemos nuestra propiedad flex-shrink con su valor en 0 para anular la propiedad y su valor que vienen por defecto y asi conseguir que este item en concreto coja el tamaño que se le esta dando con el flex-basis*/
+
+        /* Este caso se podria hacer de una forma mas sencilla y breve con la propiedad "flex" y los tres valores dentro de esta propiedad, en lugar de declarar primero un flex-basis y despues un flex-shrink
+            flex: 0 0 400px;*/
+}
+.flex-item2-1:nth-child(4){
+    background-color: crimson;
+}
+.flex-item2-1:nth-child(5){
+    background-color: purple;
+}
+.flex-container3{
+    background-color: aqua;
+    width: 500px;
+    height: 200px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.flex-item3{
+    background-color: yellow;
+    width: 70px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 0;/*order declarado con fines educativos pero es el valor por defecto, asi que no es necesario declararlo si lo que buscamos es que order se mantenga con el valor en 0 como vienen por defecto*/
+        /* Con order podemos recolocar o reorganizar los items dentro de un contenedor. La forma en que trabaja order es muy parecida si no es que similar a como trabaja z-index. La cual nos va a posicionar los elementos de acuerdo al valor que tengan order, entre mas alto el valor lo va a arrojar mas al final, ya sea que haya un solo order o varios declarados en los items estos se van a ir posicionando de acuerdo a su valor, el que tenga el valor mas arriba del valor por defecto se ira al final si es que hay un solo order, pero si hay varios en valor arriba del por defecto de va a posicionar despues de los items que tengan valores por defecto pero antes de los items que tengan valores por encima del item que tiene el valor consecutivo al valor por defecto. Este tipo de orden los podremos observar en este caso con los items que tenemos en el*/
+}
+.flex-item3:first-child{
+    order: 5;
+}
+.flex-item3:nth-child(2){
+    background-color: red;
+    order: 1;
+}
+.flex-item3:nth-child(3){
+    background-color: blue;
+    order: 4;
+}
+.flex-item3:nth-child(4){
+    background-color: black;
+    color: white;
+    order: 2;
+}
+.flex-item3:nth-child(5){
+    background-color: orangered;
+    order: 3;
+}
