@@ -102,3 +102,10 @@ body{
     text-transform: uppercase;
     color: aqua;
 }
+.form-button:hover{
+    background-color: aqua;
+    color: black;
+}
+.form-button:active{
+    width: 97%;
+}
