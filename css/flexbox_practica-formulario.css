@@ -107,5 +107,6 @@ body{
     color: black;
 }
 .form-button:active{
-    width: 97%;
+    width: 98%;
+    border: 2px solid lightcoral;
 }
