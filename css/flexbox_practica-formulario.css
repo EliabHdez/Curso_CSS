@@ -8,34 +8,39 @@ body{
 .card{
     background-color: #222;
     width: 100%;
-    height:400px;
-    margin: 30px auto;
+    height:570px;
+    /* margin: 30px auto; */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: center;
     border-radius: 10px;
 }
 .card-left{
     width: 20%;
     height: 100%;
     display: flex;
+    /* flex-direction: column; */
     align-items: flex-start;
     justify-content: center;
     background-color: darkcyan;
-    margin: 10px;
+    margin-left: 10px;
     padding-left: 4px;
     padding-right: 3px;
 }
 .card-right{
-    width: 70%;
-    padding: 30px;
+    width: 75%;
+    margin-left: 40px;
+    margin-right: 30px;
+    margin-top: 0;
+    font-size: 25px;
 }
 .card-title{
     text-transform: uppercase;
     display: flex;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 .img{
-    max-width: 92%;
+    max-width: 80%;
     border-radius: 5px;
     margin: 35px;
 }
@@ -48,13 +53,15 @@ body{
 .form-field{
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
 }
 .form-names{
     display: flex;
     justify-content: space-between;
 }
 .form-names  input{
-    max-width: 73%;
+    width: 98%;
 }
 .form-label{
     text-transform: uppercase;
@@ -66,17 +73,21 @@ body{
     background: none;
     border: none;
     border-bottom: 3px solid darkcyan;
-    /* color: lightblue; */
     color: lightcoral;
-    /* color: white; */
     padding-left: 10px;
+    font-size: 18px;
 }
 .form-input{
     border-radius: 10px;
+    height: 35px;
 }
 .form-textarea{
     border-radius: 10px;
     resize: none;
+    flex-basis: 120px;
+    font-size: 20px;
+    padding: 10px;
+    height: 100px;
 }
 /* .form-submit{
     width: 100%;
@@ -91,8 +102,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 15px;
+    margin-top: 3px;
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
