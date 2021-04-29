@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: radial-gradient(circle, darkorchid, black);
+    background-repeat: no-repeat;
+    margin: 0;
+    color: white;
+    height: 100vh;
+}
+.grid-container{
+
+}
+.grid-item{
+    border: 1px solid;
+    text-align: center;
+    font-size: 30px;
+    padding: 1rem;
+}
