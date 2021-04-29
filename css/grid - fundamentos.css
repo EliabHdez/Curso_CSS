@@ -9,11 +9,33 @@ body{
     height: 100vh;
 }
 .grid-container{
-
+    display: grid;
+    grid-template-columns: 100px 70px 150px 30px;
+    grid-template-rows: 100px 50px 70px;
+    gap: 100px 30px;
+    /*gap es un shorthand de column-gap y row-gap. Si queremos darle medidas diferentes al gap de las comunas y de las filas podemos hacerlo de forma individual con cada gap correspondiente o con gap y dos valores. Ej gap- 100px 30px. El primer valor corresponde al gap entre filas (row-gap) y el segundo valor al gap entre columnas (column-gap)*/
+    /* column-gap: 30px; */
+    /* row-gap: 100px; */
 }
 .grid-item{
     border: 1px solid;
-    text-align: center;
-    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
+    font-size: 30px;
+}
+.grid-container2{
+    display: grid;
+    grid-template-columns: 100px 70px 150px 30px;
+    grid-template-rows: 100px 50px 70px;
+}
+.grid-item2{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 20px;
+    color: black;
 }
