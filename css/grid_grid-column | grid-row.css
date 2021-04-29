@@ -1,0 +1,33 @@
+body{
+    background-image: radial-gradient(circle, lime 300px, black);
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+}
+.grid-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    font-size: 30px;
+}
+.grid-item:nth-child(1){
+    background-color: red;
+}
+.grid-item:nth-child(2){
+    background-color: blue;
+}
+.grid-item:nth-child(3){
+    background-color: red;
+}
+.grid-item:nth-child(5){
+    background-color: blue;
+}
