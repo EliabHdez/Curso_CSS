@@ -1,3 +1,23 @@
+/* 
+    Ordenar elementos con grid-column y grid-row
+    
+    - grid-column-start: Establece desde que column line empezara el elemento
+    - grid-column-end: Establece hasta que column line llega el elemento
+    - grid-row-start: Establece desde que row line empezara el elemento
+    - grid-row-end : Establece hasta que row line llega el elemento
+    
+    Existe un shorthand que engloba las 2 propiedades
+        grid-column: start / end
+        grid-row: start / end
+        
+    Tanto start como end admiten valores positivos, negativos y la palabra span
+        - Valor positivo: Empieza a contar las column-lines o las row-lines de izquierda a derecha
+        - Valor negativo: Empieza  a contar las columns-lines o las row-lines de derecha a izquierda
+        - span: Establece cuantas columnas ha de ocupar, span 3 es como decirle que ocupe 3 columnas, no importa si el span lo ponemos en el apartado de "start"(grid-column-start), este tomara el numero de espacios que se le declaro en el span. Ej grid-column-end | grid-column-start: span 3. El span tambien puede ser ocupado en los shorhands grid-column/row 
+        
+        Tip: Si ponemos en el valor end -1 llegara hasta el final
+*/
+
 body{
     background-image: radial-gradient(circle, lime 300px, black);
     background-repeat: no-repeat;
@@ -10,7 +30,8 @@ body{
 .grid-container{
     display: grid;
     grid-template-columns: 100px 100px 100px 100px;
-    grid-template-rows: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px;
+    gap: 5px;
 }
 .grid-item{
     display: flex;
@@ -19,15 +40,75 @@ body{
     border: 2px solid black;
     font-size: 30px;
 }
-.grid-item:nth-child(1){
+.grid-item:first-child, /*Aqui puede ir :nth-child(1) o :first-child. Ambos represental al primer elemento o al primer hijo de estos elementos*/
+.grid-item:nth-child(2){
     background-color: red;
 }
-.grid-item:nth-child(2){
+.grid-item:nth-child(3),
+.grid-item:nth-child(4){
     background-color: blue;
+}
+.grid-item:nth-child(4){
+    grid-column-start: 1;
+    /* grid-column-end: 2;  */
+        /*Si el tamaño del contenedor coincide con el espacio que va a ocupar el elemento dentro del grid, no sera necesario declarar ya sea el valor start o end (dependiendo del caso), este se ajustara de forma automatica, como en est caso, estan declarados y comentados dos de estos ya que como se puede observar aunque se pueden poner no es necesario ya que el tamaño coincide con el espacio a ocupar y el resultado ya sea que se declaren o no es el mismo
+        
+        Esto mismo lo podremos ver en los casos de abajo donde los eh dejado son comentar para observar que pueden estar declarados los espacios asignados pero que si los comentamos con en este caso el resultado sera el mismo y nuestro grid seguira siendo el mismo e igual*/
+    grid-row-start: 1;
+    /* grid-row-end: 2; */
+}
+.grid-item:nth-child(2){ /*Aqui un caso de declaracion de valores no necesarios para demostrar el punto del comentario echo en el caso anterior*/
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
 }
 .grid-item:nth-child(3){
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+/* 
+    En la sig tabla ocuparemos a medida que se pueda el span o solo los valores dentro del grid-column / grid-row para ver su uso
+    
+        En el valor del span tenemos que poner los espacios que quermos que ocupen nuestros items NO el numero de fila o columna donde queremos que empiece o termine, este no funciona asi, al span solo le damos el numero que corresponde al numero de filas o columnas que tiene que ocupar en el grid. Ej si ponemos span 3 quiere decir que ocupara tres espacios (filas o columnas) en el grid, sin importar en que fila o columna se encuentre y/o empiece
+*/
+.grid-container2{
+    display: grid;
+    grid-template-columns: 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px;
+    gap: 5px;
+}
+.grid-item2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    font-size: 30px;
+}
+.grid-item2:first-child, 
+.grid-item2:nth-child(2){
     background-color: red;
 }
-.grid-item:nth-child(5){
+.grid-item2:nth-child(3),
+.grid-item2:nth-child(4){
     background-color: blue;
+}
+/* 
+    Apartir de aqui podemos ver el uso del span en los diferentes elementos dentro del grid 
+*/
+.grid-item2:first-child{
+    grid-column: span 2;
+}
+.grid-item2:nth-child(4){
+    grid-row: 1;
+    grid-column: 1;
+}
+.grid-item2:nth-child(2){
+    grid-row: 3 / 5; 
+        /* Aqui vemos la manera de ocupar el grid-row o grid-column donde podemos poner el valor inicial y final que abarcara nuestro item dentro del grid. Estos valores tienen que ir seprarados por un slash (/)*/
+    grid-column: span 2;
+}
+.grid-item2:nth-child(3){
+    grid-row: 2 / span 3;
+    grid-column: 4;
 }
