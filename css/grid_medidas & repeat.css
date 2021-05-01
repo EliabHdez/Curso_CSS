@@ -1,0 +1,91 @@
+/* 
+    Medidas de la cuadricula
+        Se pueden dar medidas con cualquiera de las unidades que ya conocemos y dos mas que vienen con grid: fr y auto
+            - fr: Equivale a n fracciones del espacio disponible despues de establecer las medidas fijas
+            - auto: Equivale al espacio que quede despues de repartir todos los elemento, es el ultimo que se reparte. El tamaño minimo del item sera el espacio del contenido - el padding si lo tuvuera
+            
+        function repeat()
+            Con la funcion repeat podemos establecer repeticiones de medidas o patrones. En el caso "simple" recibira 2 parametros (valores):
+                repeat(nColumnas o nFilas, medida)
+                grid-template-columns: repeat(4,100px) es lo mismo que:
+                    grid-templates-columns: 100px 100px 100px 100px;
+            Si como segundo valor añadimos mas de una medida, construiremos un patron, no hay limite de valores
+                grid-template-columns: repeat(2, 100px 50px...)es lo mismo que:
+                    grid-template-columns: 100px 50px 50px 100px;
+*/
+body{
+    background-image: radial-gradient(circle, darkseagreen 50%, black);
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 250px repeat(2, 100px) 180px;
+    grid-template-rows: repeat(2, 130px) 80px;
+        /* La ultima fila al no darle una medida toma la medida del implicit grid. Este no lo hemos visto aun (siguiente tema a ver), pero hay que saber aunque sea por encima que esta pasando con esta ultima fila, que medida toma cuanto no se le asigna una manualmente, despues de ver el implicit grid podremos saber que medida toma y como y de donde es que esta medida la calcula grid de forma automatica */
+}
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid red;
+    padding: 30px;
+    font-size: 2rem;
+}
+.grid-container1{
+    display: grid;
+    grid-template-columns: repeat(3, 150px 90px);
+        /* Al poner dos valores o mas en las medidas vamos a generar un patron. Como podemos observar en este caso donde tenemos tres patrones, lo que dan 6 columnas. Estos patrones se componen de dos columnas, la primera de 150px y la segunda de 90px. Ese seria el patron por asi decirlo, si las queremos ver de fomra independiente seria que la primer columna tiene 150px la segunda 90px la tercera 150px la cuarta 90px la quinta 150px y la sexta 90px */
+}
+.grid-item1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid yellow;
+    padding: 30px;
+    font-size: 2rem;
+}
+.grid-container2{
+    display: grid;
+    grid-template-columns: 130px 2fr 1fr;
+    grid-template-rows: 60px 10vh;
+}
+.grid-item2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid blue;
+    padding: 30px;
+    font-size: 2rem;
+}
+.grid-container3{
+    display: grid;
+    grid-template-columns: 400px 100px auto 100px;
+        /* El auto respeta el padding como en este caso, si yo le quitara el padding el tamaño dei item seria del tamaño del contenido */
+}
+.grid-item3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid black;
+    padding: 30px;
+    font-size: 2rem;
+    color: white;
+}
+.grid-container4{
+    display: grid;
+    grid-template-columns: 500px 100px auto 100px;
+        /* Aqui le hemos quitado el padding a los items y por lo tanto el auto solo permite que el tamaño del item sea de acuerdo al contenido que tiene*/
+}
+.grid-item4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid black;
+    /* padding: 30px; */
+    font-size: 2rem;
+    color: white;
+}
