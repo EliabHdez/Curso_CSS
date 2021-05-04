@@ -1,3 +1,18 @@
+/* 
+    Explicit grid: Es el grid que declaramos, tanto con grid-template-columns como con grid-template-row 
+    
+    Implicit grid: Es el grid que no declaramos, son los items que quedan fuera del explicit grid 
+    
+    grid-auto-columns: Establece que hacer con las columnas no definidas
+    
+    grid-auto-row: Establece que hacer con las filas no definidas
+    
+    grid-auto-flow: Establece la direccion en la cual se va a pintar el implicit grid
+        Admite 3 valores:
+            row(defautl): Se crearan filas adicionales
+            column: Se crearan columnas adicionales
+            dense: Establece que hacer con los huecos que quedan
+*/
 body{
     background-image: radial-gradient(aqua, black);
     background-repeat: no-repeat;
@@ -11,7 +26,8 @@ body{
 .grid-container{
     display: grid;
     grid-template-columns: repeat(5, 100px);
-    grid-template-rows: repeat(3, 70px);
+    grid-template-rows: repeat(2, 100px);
+        /* Aqui solo se han declarado que se creen dos filas las cuales son explicit grid. La tercera ya es implicit grid ya que es una fila que no se ha declarado de forma manual, es decir nosotros no la hemos creado, estas filas o columnas se les denomina implicit grid y su tamaño es el justo con respecto a su contenido. En este caso vemos que es mas grande que el contenido y eso se debe al padding de los items, si quitamos ese padding veremos que solo tendra el tamaño justo del contenido */
 }
 .grid-item{
     display: flex;
@@ -19,4 +35,96 @@ body{
     align-items: center;
     padding: 15px;
     border: 1px solid red;
+}
+.grid-container2{
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: 50px;
+        /* Aqui podemos observar el espacio que tienen las filas del implicit grid al no tener un padding, ocupan el espacio necesario solo de su contenido, tienen un espacio a los lados debido al tamaño asignado a las columnas */
+}
+.grid-item2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+.grid-container2-1{
+    display: grid;
+    grid-template-columns: repeat(2, 70px);
+    grid-auto-columns: 150px;
+        /* Con el grid auto column / row, establecemos que hacer que la implicit grid, en este caso le di una medida, lo cual estara ajustando los items que esten dentro del implicit grid a esta medida. Es lo mismo para las filas con el grid auto row */
+    grid-auto-flow: column;
+        /* Con el grid autoflow le decimos si el implicit grid debe hacer filas o columnas, por defecto hace filas, pero para ver la otra opcion aqui eh declarado que sean columnas para que podamos ver que aunque declaramos que solo sean dos columnas al momento de tener mas items y declarar el grid auto flow en columns la implicit grid en lugar de hacer filas para poner los items restantes crea columnas para estos */
+}
+.grid-item2-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+.grid-container3{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 130px);
+    /* grid-auto-flow: dense; */
+        /* El dense lo que hace es rellenar los huecos que van quedando al crear nuestra grid, y que estos se forman por que no encajan de forma predeterminada todos los items en esta, Dense lo que hace es que toma el item siguiente mas cercano que quepa en el huevo que hay y lo acomoda y asi sucesivamente va tomando y recorriendo los items a los espacios vacios para ir rellenando el grid. Si nosotros quitamos este dense veremos la grid con bastantes huevos entre ella y con un orden diferente */
+}
+.grid-item3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid black;
+    color: white;
+}
+.grid-item3:nth-child(2){
+    grid-column: span 3;
+    grid-row: 2 / 4;
+    background-color: blueviolet;
+}
+.grid-item3:nth-child(3){
+    grid-column: 3 / 6;
+    background-color: orangered;
+}
+.grid-item3:nth-child(5){
+    grid-column: span 5;
+    background-color: lime;
+}
+.grid-item3:last-child{
+    grid-column: span 3;
+    background-color: blue;
+}
+.grid-container4{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 130px);
+    grid-auto-flow: dense column;
+        /* El dense se puede aplicar en direccion vertical (row que es por decir la forma predeterminada), pero tambien en forma horizontal (column) para que el acomodado sea en columnas. Aqui vemos que no hay espacios vacios entre el grid como en el caso anterior, ya que aqui tenemos declarado un grid auto flow con el valor en dense y ademas en columns para que este rellenado se genere en forma horizontal, en columnas. En el caso anterior anterio tambien tenemos un dense, pero esta inactivo/comentado, si lo comentamos veremos el resultado y la difrencia entre este grid y el anterior */
+}
+.grid-item4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid black;
+    color: white;
+}
+.grid-item4:nth-child(2){
+    grid-column: span 3;
+    grid-row: 2 / 4;
+    background-color: blueviolet;
+}
+.grid-item4:nth-child(3){
+    grid-column: 2 / 6;
+    background-color: orangered;
+}
+.grid-item4:nth-child(5){
+    grid-column: span 5;
+    grid-row: span 2;
+    background-color: lime;
+}
+.grid-item4:last-child{
+    grid-column: span 3;
+    grid-row: span 3;
+    background-color: blue;
 }
