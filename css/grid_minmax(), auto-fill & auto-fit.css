@@ -1,0 +1,108 @@
+/* 
+    - min-max(): Recibe dos parametros (valores) para establecer el minimo y el maximo que pueden tener los items
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        
+    min-content: minimo necesario en funcion del contenido
+    max-content: maximo necesario en funcion del contenido
+    
+    - auto-fill: Crea tantos grid-items vacios como quepan en el viewport respetando las medidas
+    - auto-fit: Elimina los grid-items vacios que no se esten ocupando
+
+    NO HAY QUE CONFUNDIR EL MIM-MAX CON EL MINMAX, EL VISTO AQUI Y EL QUE SE OCUPA PARA EL GRID ES "MINMAX()", SIN EL GUION MEDIO
+*/
+body{
+    background-image: radial-gradient(circle, aqua, black);
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-items: flex-start; */
+}
+.grid-container{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+        /* Con el minmax podemos especificar el tamaño minimo y maximo de los items para asi tener un grid dinamico, ajustable y reescalable confome al espacio o tamaño en pantalla, de esta manera el tamaño de los items se ajustara de acuerdo al tamaño en la pagina web */
+}
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    padding: 20px;
+    font-size: 30px;
+}
+.grid-container2{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(3, minmax(min-content, 200px));
+        /* El valor min-content como su nombre lo indica le permite a los items llegar a su tamaño minimo con respecto a su contenido. En este caso establecemos que al reducir el espacio en la pagina el tamaño minimo que debe alcanzar el item es con respecto a su contenido, con esto garantizamos que el contenido no se desborde ni tenga una apariencia visualmente erronea. Sin embargo el contenido si se puede ir desplazando y desbordando dentro del espacio del item si es que este por cuestiones de espacio le da para que el contenido haga esto como en el siguiente caso */
+}
+.grid-item2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+}
+.grid-container3{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(3, minmax(min-content, 200px));
+        /* En este caso podemos ver que teniendo un min-content con un texto, este no se desborda del contenedor, ni aunque este se haga mas pequeño, este siempre va a mantener un tamaño donde el texto quepa, sin embargo conforme se reduzca el tamaño en la pagina el texto se va a ir desplazando hacia abajo dentro del mismo contenedor/item hasta que llegue a su tamaño minimo, pero siempre va a haber un desborde o desplazamiento por parte del texto. Al contrario de lo que veremos en el sig caso con el max-content */
+}
+.grid-item3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    padding: 20px;
+    font-size: 30px;
+    color: red;
+}
+.grid-container3-1{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(3, minmax(max-content, 200px));
+        /* Con el max-content evitamos el desbordamiento o desplazamiento hacia abajo del texto o contenido del contenedor como es el caso del auto-fill. El max-content lo que hace es que respeta la estructura del contenido y no permite que este se deforme de ninguna manera y siempre se mantenga todo el contenido en una sola linea a menos que este tenga saltos de linea que nosotros hayamos especificado. El max-content se basa en el contenedor que tenga el contenido mas grande */
+}
+.grid-item3-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    padding: 20px;
+    font-size: 30px;
+    color: red;
+}
+.grid-container4{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        /* Auto-fill respeta la primer medida asignada para que se puedan ir creando mas items con respecto a esta medida en el espacio vacio, vaya respeta la medida minima para que apartit de ahi se generen mas items, no respeta la medida maxima, ya que de lo contrario en lugar de crear mas items en el espacio que se vaya generando solo los haria mas grandes, por lo tanto el tamaño maximo asignado no lo pela. Aunque no haya items podremos ver que el espacio vacio esta dividido conforme al tamaño de los items existentes */
+}
+.grid-item4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid yellow;
+    padding: 20px;
+    font-size: 30px;
+}
+.grid-container5{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 130px));
+        /* Al contrario del auto-fill, el auto-fit si respeta el tamaño maximo, ya que permite que los items vayan adoptando su medida con respecto al espacio, sin embargo no genera items adicionales de ninguna medida, ni la min ni la maxima, el espacio sobrante lo deja como espacio vacio, pero no lo asigna como parte del grid, vaya no vemos una secuencia de espaciado o tamaño de items en el espacio vacio como es en el caso del autofit, donde aunque no hay items podemos ver que el espacio vacio esta divido conforme al tamaño de los items existentes */
+}
+.grid-item5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid yellow;
+    padding: 20px;
+    font-size: 30px;
+    color: red;
+}
