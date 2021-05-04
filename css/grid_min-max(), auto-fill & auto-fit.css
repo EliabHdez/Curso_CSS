@@ -1,0 +1,30 @@
+/* 
+    - min-max(): Recibe dos parametros (valores) para establecer el minimo y el maximo que pueden tener los items
+        grid-template-columns: repeat(2, min-max(100px, 1fr));
+        
+    min-content: minimo necesario en funcion del contenido
+    max-content: maximo necesario en funcion del contenido
+    
+    - auto-fill: Crea tantos grid-items vacios como quepan en el viewport respetando las medidas
+    - auto-fit: Elimina los grid-items vacios que no se esten ocupando
+*/
+body{
+    background-image: radial-gradient(circle, aqua, black);
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.grid-container{
+    display: grid;
+    grid-gap: 2px;
+}
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    padding: 20px;
+    font-size: 30px;
+}
