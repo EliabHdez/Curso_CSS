@@ -1,0 +1,188 @@
+/* 
+    Alineamiento:
+        - justify-item: Alinea los elementos horizontalmente respecto a la celda
+        - align-items: Alinea los elementos verticalmente respecto a la celda
+        
+        Admiten los valores:
+            - start
+            - end
+            - center
+            - stretch(default)
+        
+    place-items: Engloba las propiedades justify-items y align-items. Es un shorthand para las dos lineas de codigo de arriba puestas de forma independiente
+        place-items: align-items justify-items
+        
+        - justify-content: Alinea los elementos horizontalmente respecto al contenedor
+        - align-content: Aliena los elementos verticalmente respecto al contenedor
+        - place-content: align-content / justify-content (Shorthand para lo de arriba en una sola linea de codigo)
+        
+        Admiten los valores:
+            - start
+            - end
+            - center
+            - stretch(default)
+            - space-around
+            - space-between
+            - space-evenly
+        
+    Tenemos las mismas propiedades con self para los items:
+        - justify-self
+        - align-self
+        - place-self
+        
+        Admiten los valores:
+            - start
+            - end
+            - center
+            - stretch
+            
+    Order: Funciona igual que en flexbox, por defecto los items tienen order:0
+*/
+body{
+    background-image: radial-gradient(circle, aqua, black);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* height: 100vh; */
+}
+.grid-container{
+    display: grid;
+    gap: 10px;
+    height: 50vh;
+    border: 5px solid red;
+    grid-template-columns: repeat(3, 1fr);
+    /* justify-items: end;
+    align-items: start; */
+    place-items: start end;
+        /* El place-items es lo mismo que si declaramos justify-items y align-items de forma individual, solo que de una forma mas facil y abreviada. Primero va el valor de align-items seguido del valor de justify-items */
+}
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 20px;
+}
+.grid-container2{
+    display: grid;
+    gap: 10px;
+    border: 5px solid yellow;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 130px);
+    justify-content: space-evenly;
+        /* Recordar que place-content, justify y align-content sirven para alinear los elementos/items en el contenedor donde se encuentran almacenados (en este caso el div general o grid-container). O viendolo de otra manera alinear el grid creado al contenedor donde creamos dicho grid. Esto puede ser un poco confuso, sin embargo lo importante es grabarnos que estas opciones nos permitiran designar el espacio que ocupara el grid en el contenedor (de igual manera en este caso el div o grid-container que es el espacio fisico que almacena el grid creado)*/
+    place-items: center;
+        /* Y el place-items, justify y align-items sirven para alinear los elementos/items dentro de la celda generada en el grid. En otras palabras nos sirve para alinear el contenido de las celdas. Este contenido se alinea por obviedad conr especto a la celda que lo contiene*/
+}
+.grid-item2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 20px;
+}
+.grid-container3{
+    display: grid;
+    gap: 10px;
+    border: 5px solid blue;
+    grid-template-columns: repeat(3, 120px);
+    /* justify-content: center;
+    align-content: space-evenly; */
+    place-content: space-evenly center;
+        /* Esto es lo mismo que lo de arriba (lo que esta de forma individual y comentado), solo que de una forma mas rapida y abreviada al igual que pasa con el place-items */
+    height: 50vh;
+}
+.grid-item3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 20px;
+}
+.grid-container3-1{
+    display: grid;
+    gap: 10px;
+    border: 5px solid royalblue;
+    grid-template-columns: repeat(3, 120px);
+    justify-content: start;
+}
+.grid-item3-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 20px;
+}
+.grid-container3-2{
+    display: grid;
+    gap: 10px;
+    border: 5px solid skyblue;
+    grid-template-columns: repeat(3, 120px);
+    justify-content: space-between;
+}
+.grid-item3-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 20px;
+}
+.grid-container4{
+    display: grid;
+    gap: 10px;
+    border: 5px solid lightcoral;
+    grid-template-columns: repeat(3, 200px);
+    height: 50vh;
+    justify-content: space-evenly;
+    place-items: center;
+}
+.grid-item4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 40px;
+    font-size: 20px;
+}
+.grid-item4:first-child{
+    align-self: end;
+    justify-self: end;
+}
+.grid-item4:nth-child(2){
+    place-self: start center;
+}
+.grid-item4:nth-child(3){
+    place-self: center start;
+}
+.grid-container5{
+    display: grid;
+    gap: 10px;
+    border: 5px solid red;
+    grid-template-columns: repeat(3, 1fr);
+}
+.grid-item5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    padding: 40px;
+    font-size: 30px;
+}
+.grid-item5:nth-child(5){
+    background-color: yellow;
+    order: -1;
+        /* order es muy similar al order en flexbox, algo asi como el z-index donde el valor especificado va a determinar la posicion del item en el grid, entre mayor sea el valor mas al final se ira y entre menor sea el valor mas al inicio se ira. Se pueden poner valores - o + */
+}
+.grid-item5:nth-child(2){
+    background-color: lime;
+    order: 1;
+}
+/* Porque el "E" se va al principio y el "B" al final??? Esto es porque todos los items por defecto tienen un valor de order de 0 (order:0). E al tener un valor -1 en order hace que se vaya al inicio de todo ya que numericamente -1 esta antes que el 0 y B al tener 1 en order hace que se vaya despues de todos los items que su valor en order sea 0, en este caso todos los demas ya que no tienen un valor en order declarado por lo tanto mantienen su valor por defecto que es 0. Si hacemos una modificacion y a B le ponemos 2 y algun otro 1 B seguira siendo el ultimo pero el que tenga el valor uno sera el penultimo, osea despues de todos los restantes pero antes que B o visceversa, si a algun otro le ponemos order:2 este sera el ultimo y B pasara a ser el penultimo. Como se puede apreciar en el caso de abajo. Lo dejare aplicado para que sea visible, pero si lo comentamos podremos ver lo explicado al inicio de este texto donde B es el ultimo item */
+.grid-item5:nth-child(4){
+    background-color: royalblue;
+    order: 2;
+}
