@@ -1,0 +1,76 @@
+body{
+    background-image: radial-gradient(circle, rgb(163, 34, 163) 30%, black);
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid-container{
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    background-color: white;
+    grid-template-columns:
+        [first-column-line]
+            100px
+        [second-column-line]
+            100px
+        [third-column-line]
+            100px
+        [fourth-column-line]
+            100px
+        [last-column-line];
+    grid-template-rows:
+        [first-row-line] 100px
+        [second-row-line] 100px
+        [third-row-line] 100px
+        [fourth-row-line] 100px
+        [last-row-line];
+
+        /* Podemos nombrar las lineas divisorias del grid para asi al momento de dar tamaño y espacios a los items dentro del grid con el grid-column o grid-row podamos hacerlo con los nombres asignados a estas lineas en lugar de hacerlo con numeros. Las lineas divisorias son las que como su nombre lo indican dividen las filas y las columnas, en otras palabras son las lineas que se encuentran entre cada celda de forma continua formando las columnas y las filas.
+        
+            ej: grid-column: first-column-line / third-column-line
+                en lugar de poner grid-column: 1 / 3
+
+                grid-row: first-row-line / third-row-line
+                en lugar de poner grid-row: 1 / 3
+                
+        Se les puede asignar el nombre que nosotros queramos y con el que nos acomodemos o nos acordemos y el orden para declarar estos nombres pueden ser de forma organizada como lo hice con las lineas de las columnas con un respectivo salto de linea entre cada una o de forma mas directa pero visualmente mas engrolloso que es de forma continua, en una sola linea. Pero sea de una u otra forma, la sintaxis es (entre corchetes) nombre de la linea seguido de su medida (medida fuera de los corchetes), ej:
+            - [first-column-line] 100px [second-column-line] 100px
+            - [first-column-line] 100px 
+            [second-column-line] 100px
+            - [first-column-line] 
+                    100px 
+               [second-column-line] 
+                    100px
+        
+        Lo anterior son 3 ejemplos de como ponemos poner los nombres de nuestras lineas con sus medidas, ya se de forma continua o con saltos de linea para que se vea mejor organizado. Pero siempre es nombre y medida seguido de otro nombre con su medida y asi sucesivamente. No se pueden poner primero los nombres y despues las medidas o visceversa */
+}
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 20px;
+}
+.grid-item:nth-child(1){
+    background-color: darkturquoise;
+    grid-column: second-column-line / third-column-line;
+}
+.grid-item:nth-child(2){
+    background-color: darkturquoise;
+    grid-column: first-column-line / third-column-line;
+    grid-row: second-row-line / fourth-row-line;
+}
+.grid-item:nth-child(3){
+    background-color: darkorange;
+    grid-column: third-column-line / fourth-column-line;
+    grid-row: first-row-line / third-row-line;
+}
+.grid-item:nth-child(4){
+    background-color: darkorange;
+    grid-column: first-column-line / second-column-line;
+    grid-row: first-row-line / second-row-line;
+}
