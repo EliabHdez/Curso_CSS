@@ -1,0 +1,98 @@
+/* 
+    grid-templatte-areas: Nos permite crear un grid por medio de un layout generado directamente en el archivo css. Este layout puede contener letras, palabras o numero los cuales indicaran el numero de filas y columnas. Cada fila se tiene que poner entre comillas ("") y deben ir separadas por un salto de linea. Las columnas solo se generaran dando espacio entre las palabras correspondientes que conforman las filas */
+
+body{
+    background-image: radial-gradient(circle, lime 50%, black);
+    background-attachment: fixed;
+}
+.main{
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "text text aside"
+        "text text aside"
+        "footer footer -";
+            /* Con el grid-template-areas podemos crear de cierta manera el grid en el archivo css, dandole una estructura como la de arriba, donde cada polabra, numero etc correspondera a las filas y columnas, ademas de que podemos indicarle por medio de los nombres hasta donde queremos que lleguen los items en nuestra grid. Como se puede ver header ocupa las tres columnas y una fila, text ocupa dos columnas y dos filas, aside ocupa una columnas y dos filas y el footer ocupa dos columnas y una fila. Para especificar que ciertos items lleguen hasta un limite en el grid necesitamos marcar este limite con un guion (-) o un punto (.) como se ve en la parte del footer, donde en la ultima columna le pusimos un guion y en la pagina visualmente el footer solo ocupa dos columnas, dejando libre la tercera, este limite se lo damos con el guion o el punto*/
+    grid-template-columns: repeat(2, 1fr) 200px;
+    grid-template-rows: 100px 300px 80px;
+}
+.header, .footer{
+    background-color: crimson;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+.header{
+    grid-area: header;
+}
+.aside{
+    background-color: blue;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    grid-area: aside;
+}
+.text{
+    background-color: yellow;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin: 0;
+    grid-area: text;
+}
+.footer{
+    grid-area: footer;
+}
+.main2{
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "side text text"
+        "side text text"
+        "side footer footer";
+    grid-template-columns: repeat(2, 1fr) 200px;
+    grid-template-rows: 100px 300px 80px;
+}
+.header2, .footer2{
+    background-color: rgb(248, 73, 73);
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+.header2{
+    grid-area: header;
+}
+.side{
+    grid-area: side;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: royalblue;
+    margin: 0;
+}
+.aside2{
+    font-size: 30px;
+}
+.text1{
+    font-size: 22px;
+    font-weight: lighter;
+}
+.text2{
+    background-color: rgb(241, 241, 65);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin: 0;
+    grid-area: text;
+}
+.footer2{
+    grid-area: footer;
+}
