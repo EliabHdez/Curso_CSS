@@ -11,17 +11,20 @@
 
         "Las ultimas tres ya las vimos en video-tutoriales pasados. Solo faltaban por ver las dos primeras"
 */
+
+/* Como consejo personal de dorian design no es del todo bueno ocupar este tipo de shorthands ya que a la hora de depurar el codigo o querer hacer cambios o arreglos el hecho de tener todo tan comprimido y declarado en un solo concepto tiende a ser mas engrolloso y dar mas problemas que soluciones. Impartio el tema para que lo conozcamos y no estemos desinformados acerca de esto, pero no recomienda usarlo y mas siendo principiantes */
 body{
     background-image: radial-gradient(circle, aqua 50%, black);
     background-attachment: fixed;
-    height: 100vh;
+    /* height: 150vh; */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
 }
 .grid-container{
     display: grid;
+    grid-template: 100px 200px 250px / 300px 250px;
+        /* De esta manera podemos hacer el grid si solo queremos declarar filas y columnas. Los primeros valores corresponden a las filas y los segundo a las columnas */
 }
 .grid-item{
     border: 2px solid black;
@@ -30,8 +33,19 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 30px;
 }
+/* Un grid track es la union que tenemos de/entre celdas consecutivas, ya sea de forma vertical u horizontal pero que sean consecutivas */
 .grid-item:first-child,
+.grid-item:nth-child(3),
+.grid-item:nth-child(5),
+.grid-item:nth-child(9),
+.grid-item:nth-child(10){
+    background-color: lime;
+    /* A esto se le conoce como "grid track" ya que hay celdas consecutivas las cuales por ende estan juntas una seguida de otra. Para un grid track tienen que ser 2 o mas 
+        En este ejemplo tenemos 2 grid tracks. Uno vertical que abarca la A, B y C, y uno horizontal que abarca I y J */
+}
+/* .grid-item:first-child,
 .grid-item:nth-child(2),
 .grid-item:nth-child(3),
 .grid-item:nth-child(4),
@@ -40,4 +54,62 @@ body{
 .grid-item:nth-child(7),
 .grid-item:nth-child(8){
     border-bottom: none;
+} */
+.grid-container2{
+    display: grid;
+    grid-template: 
+    "first first first" 100px
+    "center center center" 200px
+    "last . ." 250px
+    /   100px 200px 250px;
+    /* De esta manera podemos declarar grid-template-areas, dentro del shorthand grid-template. Primero tenemos que declarar lo que serian nuestras filas, posterior ponemos el slash y a continuacion declaramos nuestras columnas */
+}
+.grid-item2{
+    border: 2px solid red;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+.grid-item2:first-child,
+.grid-item2:nth-child(3),
+.grid-item2:nth-child(5){
+    background-color: lime;
+    /* Esto ya no seria un grid track ya que las celdas aunque son las mismas que las del ejemplo o caso anterior en este caso ya no se encuentras pegadas ni estan de forma consecutiva una de la otra */
+}
+/* .grid-item2:first-child,
+.grid-item2:nth-child(2),
+.grid-item2:nth-child(3),
+.grid-item2:nth-child(4),
+.grid-item2:nth-child(5),
+.grid-item2:nth-child(6),
+.grid-item2:nth-child(7),
+.grid-item2:nth-child(8){
+    border-bottom: none;
+} */
+.grid-container3{
+    display: grid;
+    /* grid: 100px 200px / 300px 250px; */
+    grid: "first first" 100px
+    / 200px 350px; 
+    /* Podriamos agregar mas propiedasdes dentro de la declaracion grid, esto es un ejemplo sencillo que con solo grid, podremos crear nuestra rejilla, pero podemos meter dentro de esta declaracion todas las propiedades abajo mencionadas */
+    
+    /* El shorthand grid engloba practicamente todas las propiedades de grid en un solo concepto. Es decir en una sola declaracion definir todas las propiedades ya sean explicitas o implicitas.
+    grid permite definir todas las propiedades las cuales son:
+    - grid explicitas: grid-template-rows, grid-template-columns y grid template-areas
+    -grid implicitas: grid-auto-rows, grid-auto-columns y grid-auto-flow:
+    - relativas a gutter: gap o grid-gap
+    
+    Esto al igual que lo anterior no es recomendable ya que puede ser bastante engrolloso, problematico y confuso sobre todo para los que iniciamos*/
+}
+.grid-item3{
+    border: 2px solid blue;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
 }
