@@ -1,0 +1,43 @@
+/* 
+    Shorthands
+        - grid: (sin soporte total)
+            https://developer.mozilla.org/es/docs/Web/CSS/grid
+            
+        - grid-template: Engloba < grid-template-columns, grid-template-rows, grid-template-areas >
+        
+        - grid-gap: Engloba < grid-column-gap y grid-row-gap >
+        - grid-column: Engloba < grid-column-start y grid-column-end >
+        - grid-row: Engloba < grid-row-start y grid-row-end >
+
+        "Las ultimas tres ya las vimos en video-tutoriales pasados. Solo faltaban por ver las dos primeras"
+*/
+body{
+    background-image: radial-gradient(circle, aqua 50%, black);
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.grid-container{
+    display: grid;
+}
+.grid-item{
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid-item:first-child,
+.grid-item:nth-child(2),
+.grid-item:nth-child(3),
+.grid-item:nth-child(4),
+.grid-item:nth-child(5),
+.grid-item:nth-child(6),
+.grid-item:nth-child(7),
+.grid-item:nth-child(8){
+    border-bottom: none;
+}
