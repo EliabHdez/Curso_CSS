@@ -14,6 +14,36 @@ body{
     flex-direction: column;
         /* Estos son las dos declaraciones adicionales con sus respectivos parametros o valores para posicionar el footer en la parte inferior y hasta abajo */
 }
+/* 
+    Con flex podemos lograr un responsive web design con las siguientes declaraciones y sus valores. Esto permitira que conforme vaya creciendo o encojiendo la pagina el contenido se vaya ajustando al tamaño de esta
+*/
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-item{
+    margin: 2rem;
+    min-width: 320px;
+    flex: 1 1 320px;
+}
+/* 
+    Con grid tambien podemos lograr un responsive web design muy similar a como queda con flex, la diferencia sera que con grid el contenido se almacenara en las celdas y se ira ajustando conforme crezca o disminuya el tamaño de la pagina pero dentro de la celda que lo contiene
+*/
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 2px;
+}
+    /* 
+        Como podemos ver con grid al tener la pagina a tamaño completo los textos que quedan por debajo, en la segunda fila solo ocupan dos celdas, a comparacion de flex donde los textos que quedaban por debajo ocupaban todo el ancho de la pagina y esto se debe a que grid se limita a dividir el contenido en las celdas y estas celdas las crea de forma generalizada al momento de crear filas y columnas por lo tanto no tendra 4 columnas arribas porque hay 4 textos y abajo 2 columnas porque solo hay 2 textos, esto no lo va a hacer, si ya dividio la parte de arriba en x columnas la parte de abajo tendra el mismo patron y por lo tanto acomodara el contenido dentro de estas celdas
+    */
+.banner{
+    background-color: royalblue;
+    padding: 7vmin;
+    text-align: center;
+    font-size: 30px;
+}
 .footer{
     background-color: #222;
     font-size: 20px;
