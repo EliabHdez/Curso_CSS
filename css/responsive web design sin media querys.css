@@ -1,0 +1,24 @@
+/* 
+    - banner con unidades de viewport
+    - footer siempre abajo
+    - responsive con flexbox
+    - responsive con grid 
+*/
+body{
+    background-image: radial-gradient(circle, blueviolet 30%, black);
+    min-height: 100vh;
+        /* Este declaracion con este valor nos permite arrojar el footer al fondo. OJO solo al fondo de la direccion que dicta el eje principal que por defecto es row de izq a derecha. Para posicionarlo al fondo pero abajo hay que poner en el body un display flex y cambiar el eje principal con el flex direction */
+    background-color: black;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+        /* Estos son las dos declaraciones adicionales con sus respectivos parametros o valores para posicionar el footer en la parte inferior y hasta abajo */
+}
+.footer{
+    background-color: #222;
+    font-size: 20px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+}
